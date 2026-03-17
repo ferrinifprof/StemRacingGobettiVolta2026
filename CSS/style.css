@@ -1,0 +1,411 @@
+/* ==========================================================================
+   1. RESET E IMPOSTAZIONI DI BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    visibility: hidden; /* Gestito da components.js */
+}
+
+/* ==========================================================================
+   2. HEADER (INTESTAZIONE E LOGHI)
+   ========================================================================== */
+header {
+    background-color: #000000;
+    border-bottom: 3px solid #D4AF37;
+    padding: 10px 0;
+}
+
+.header-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.logo-piccolo {
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.logo-grande {
+    height: 45px;
+    width: auto;
+    margin-left: auto; /* Spinge il logo grande a destra */
+}
+
+.logo-text h1 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #D4AF37;
+}
+
+.logo-text p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* ==========================================================================
+   3. NAVIGAZIONE (MENU)
+   ========================================================================== */
+nav {
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 15px 25px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #000000;
+    background-color: #D4AF37;
+}
+
+.menu-btn {
+    display: none; /* Nascosto su PC */
+    background: none;
+    border: none;
+    color: #D4AF37;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   4. LAYOUT PRINCIPALE (STRUTTURA MAIN)
+   ========================================================================== */
+main {
+    flex: 1;
+    width: 70%;
+    margin: 5px auto;
+    padding: 10px 30px;
+}
+
+.due-colonne { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px;
+}
+
+.container-principale {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.sinistra {
+    flex: 3; /* 60% */
+    padding-right: 40px;
+    border-right: 2px solid #D4AF37;
+}
+
+.destra {
+    flex: 2; /* 40% */
+    padding-left: 40px;
+}
+
+main h2 {
+    color: #D4AF37;
+    border-left: 5px solid #D4AF37;
+    padding-left: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   5. COMPONENTI: LISTA LINK (BOTTONI RACING)
+   ========================================================================== */
+.lista-link {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.lista-link li {
+    margin-bottom: 15px;
+}
+
+.lista-link a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    
+    padding: 8px 25px;
+    border: 1px solid #ffffff;
+    border-radius: 12px;
+    
+    background-color: transparent;
+    transition: all 0.4s ease;
+}
+
+.lista-link a:hover {
+    color: #D4AF37;
+    border-color: #D4AF37;
+    background-color: rgba(212, 175, 55, 0.15); 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+}
+
+/* ==========================================================================
+   6. COMPONENTI: WIDGET CALENDARIO
+   ========================================================================== */
+.calendario {
+    width: 100%;
+    max-width: 300px;
+    background-color: transparent;
+    border: none; /* Sovrascrive bordi precedenti */
+    text-align: center;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+.calendario-titolo {
+    display: block;                
+    border: 1px solid #D4AF37;
+    background-color: #D4AF37;
+    border-radius: 12px;
+    color: #ffffff;
+    padding: 8px 20px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: all 0.4s ease;
+}
+
+.calendario-titolo:hover {
+    color: #000000;
+    background-color: #D4AF37;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+}
+
+.calendario-corpo {
+    display: none;
+    padding: 15px;
+    margin-top: 10px;
+    border-left: 2px solid #D4AF37;
+    background-color: rgba(255, 255, 255, 0.05);
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.calendario-corpo p {
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #222;
+}
+
+/* ==========================================================================
+   7. COMPONENTI: IMMAGINI E CAROUSEL
+   ========================================================================== */
+.focus-immagine {
+    text-align: center;
+}
+
+.img-presentazione {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #D4AF37;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.didascalia {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border: 2px solid #D4AF37;
+    border-radius: 8px;
+    background-color: #111;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active { opacity: 1; }
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #D4AF37;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.prev:hover, .next:hover { background-color: rgba(212, 175, 55, 0.8); color: black; }
+.prev { left: 0; border-radius: 0 5px 5px 0; }
+.next { right: 0; border-radius: 5px 0 0 5px; }
+
+.dots-container {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.dot {
+    height: 12px; width: 12px; margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active { background-color: #D4AF37; }
+
+/* ==========================================================================
+   8. FOOTER (PIÈ DI PAGINA)
+   ========================================================================== */
+footer {
+    background-color: #000000;
+    color: #888;
+    padding: 15px 0;
+    border-top: 2px solid #D4AF37;
+}
+
+.footer-container {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column strong {
+    color: #D4AF37;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    .container-principale { flex-direction: column; }
+
+    .sinistra {
+        border-right: none;
+        border-bottom: 2px solid #D4AF37;
+        padding-right: 0;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .destra { padding-left: 0; }
+
+    .header-container {
+        width: 70%;
+        margin: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+        align-items: center;
+        text-align: left;
+    }
+
+    .logo-grande { display: none; }
+    .logo-piccolo { height: 35px; }
+    .logo-text h1 { font-size: 1.25rem; }
+
+    .menu-btn {
+        display: block;
+        margin-left: 10px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #000;
+    }
+
+    nav ul.show { display: flex; }
+
+    nav a {
+        text-align: center;
+        border-bottom: 1px solid #222;
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .calendario {
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .img-presentazione {
+        width: 100%;
+        height: auto;
+        border: 2px solid #D4AF37;
+        border-radius: 8px;
+    }
+}
