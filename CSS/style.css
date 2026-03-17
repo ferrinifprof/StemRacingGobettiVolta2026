@@ -195,25 +195,53 @@ main h2 {
 .calendario {
     width: 100%;       /* Ora prende tutta la larghezza della colonna sinistra */
     max-width: 300px;  /* Ma gli impediamo di diventare troppo gigante */
-    margin-bottom: 30px;
-    background-color: #000;
-    border: 2px solid #D4AF37;
+    background-color: transparent;
+    border: 1px solid #D4AF37;
+    border-radius: 12px;   
+    color: #D4AF37;            /* Testo Oro di base */
+    border: none;         
+    padding: 8px 20px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    
+    transition: all 0.4s ease;
 }
 
 .calendario-titolo {
+    display: block;                
+    border: 1px solid #D4AF37;
     background-color: #D4AF37;
+    border-radius: 12px;
     color: #ffffff;
-    padding: 10px;
+    padding: 8px 20px;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
     font-size: 0.8rem;
+    transition: all 0.4s ease;
+}
+
+.calendario-titolo:hover {
+    background-color: #D4AF37; /* Diventa pieno quando ci passi sopra */
+    color: #000000;            /* Il testo diventa nero per contrasto */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+    border-color: #D4AF37;
+        /* Opzionale: un leggero bagliore (glow) oro */
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
 }
 
 .calendario-corpo {
-    display: none; 
+display: none;
     padding: 15px;
+    margin-top: 10px;          /* Spazio tra la pillola e la lista */
+    border-left: 2px solid #D4AF37; /* Una riga laterale oro invece del bordo totale */
+    background-color: rgba(255, 255, 255, 0.05); /* Sfondo scurissimo */
     max-height: 250px; /* Altezza massima quadrata */
     overflow-y: auto;
 }
@@ -222,6 +250,45 @@ main h2 {
     font-size: 0.9rem;
     padding: 8px 0;
     border-bottom: 1px solid #222;
+}
+
+.lista-link li {
+    margin-bottom: 15px; /* Spazio tra un bottone e l'altro */
+}
+
+.lista-link a {
+    display: inline-block;
+    color: #ffffff;             /* Testo bianco di base */
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+    /* Forma e Bordi */
+    padding: 8px 25px;         /* Più lungo che alto */
+    border: 1px solid #ffffff;  /* Bordo sottile bianco di base */
+    border-radius: 12px;        /* Arrotondamento */
+    
+    /* Transizione fluida */
+    transition: all 0.4s ease;  /* Movimento morbido per colore e sfondo */
+    background-color: transparent;
+}
+
+/* --- EFFETTO AL PASSAGGIO DEL MOUSE (HOVER) --- */
+.lista-link a:hover {
+    color: #D4AF37;             /* Il testo diventa Oro */
+    border-color: #D4AF37;      /* Il bordo diventa Oro */
+    
+    /* Sfondo Oro con molta opacità (trasparente) */
+    background-color: rgba(212, 175, 55, 0.15); 
+    font-weight: bold;      /* Il testo diventa grassetto al passaggio */
+
+    /* Opzionale: un leggero spostamento verso l'alto come nel sito */
+    transform: translateY(-2px);
+    
+    /* Opzionale: un leggero bagliore (glow) oro */
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
 }
 
 /* ==========================================================================
