@@ -92,6 +92,11 @@ nav a:hover {
     background-color: #D4AF37;
 }
 
+nav.active{
+	color: #000000;
+    background-color: #D4AF37;
+}
+
 .menu-btn {
     display: none; /* Nascosto su PC */
     background: none;
@@ -393,6 +398,19 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 30px;
+    }
+    
+    /* --- STILE LINK NEL FOOTER --- */
+    .footer-column a {
+        color: #ffffff;             /* Testo bianco */
+        text-decoration: none;      /* Togliamo la sottolineatura */
+        font-weight: normal;        /* Non troppo pesante */
+        transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #D4AF37;             /* Diventa Oro al passaggio del mouse */
+      text-decoration: underline; /* Sottolineatura solo al passaggio */
     }
 
     .calendario {
