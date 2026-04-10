@@ -8,7 +8,7 @@ const headerHTML = `
             <!-- Logo Piccolo (a sinistra del titolo) -->
             <img src="img/logo_small.png" alt="Logo" class="logo-piccolo">
             <div class="logo-text">
-                <h1>STEM Racing 2026</h1>
+                <h1>GOBETTI VOLTA CORSE</h1>
                 <p>Progetto Gobetti-Volta a.s. 2025/26</p>
             </div>
             <!-- Logo Grande (a destra del titolo) -->
@@ -29,17 +29,15 @@ const footerHTML = `
     <footer>
         <div class="footer-container">
             <div class="footer-column">
-                <strong>Contatti</strong><br>
-                Istituto Statale di Istruzione Superiore “Piero Gobetti – Alessandro Volta”<br>
-                Email: fiis02800r@istruzione.it
+                <a href="mailto:gobettivoltacorse@gmail.com"><strong>Contatti</strong></a><br>
+                Istituto Statale di Istruzione Superiore<br> “Piero Gobetti – Alessandro Volta”
             </div>
             <div class="footer-column">
-                <strong>Link Utili</strong><br>
-                Privacy Policy<br>
-                Note Legali
+                <strong><a href="privacy-policy.html">Privacy Policy</a></strong><br>
+                <span>Progetto didattico a cura degli studenti del TEAM dell'istituto GOBETTI VOLTA che partecipano al progetto STEM RACING</span>
             </div>
             <div class="footer-column">
-                © 2026 Realizzato dagli studenti con HTML & CSS
+                © 2026 Realizzato dagli studenti con HTML & CSS & JS
             </div>
         </div>
     </footer>

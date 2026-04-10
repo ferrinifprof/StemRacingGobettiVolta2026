@@ -325,21 +325,48 @@ main h2 {
 footer {
     background-color: #000000;
     color: #888;
-    padding: 15px 0;
+    padding: 25px 0;
     border-top: 2px solid #D4AF37;
+    font-size: 0.85rem;
 }
 
 .footer-container {
-    width: 70%;
+    width: 80%;
     margin: auto;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
-.footer-column strong {
-    color: #D4AF37;
-    display: block;
+/* Proporzioni colonne */
+.footer-column { flex: 3; padding: 0 10px; }
+.footer-column:nth-child(2) { flex: 4; text-align: center; }
+.footer-column:last-child { flex: 3; text-align: right; }
+
+/* --- I TITOLI (STRONG) E I LINK (A) --- */
+
+/* 1. Impostiamo ORO come colore di base per TUTTO ciò che è cliccabile o importante */
+.footer-column strong,
+.footer-column a,
+.footer-column a:visited {
+    color: #D4AF37; 
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
     margin-bottom: 5px;
+}
+
+/* 2. Il testo normale (non link) rimane grigio (già ereditato da footer) */
+.footer-column span {
+    color: #888;
+    display: block;
+}
+
+/* 3. EFFETTO HOVER: Quando passo sopra a un link, tutto diventa BIANCO */
+.footer-column a:hover,
+.footer-column a:hover strong {
+    color: #ffffff !important;
+    text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -400,19 +427,6 @@ footer {
         gap: 30px;
     }
     
-    /* --- STILE LINK NEL FOOTER --- */
-    .footer-column a {
-        color: #ffffff;             /* Testo bianco */
-        text-decoration: none;      /* Togliamo la sottolineatura */
-        font-weight: normal;        /* Non troppo pesante */
-        transition: color 0.3s ease;
-    }
-
-    .footer-column a:hover {
-      color: #D4AF37;             /* Diventa Oro al passaggio del mouse */
-      text-decoration: underline; /* Sottolineatura solo al passaggio */
-    }
-
     .calendario {
         width: 100%;
         max-width: 300px;
