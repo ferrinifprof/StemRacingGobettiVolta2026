@@ -3,22 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sito Progetto | Home</title>
+    <title>Car Model | Gobetti Volta Corse</title>
     <link rel="stylesheet" href="CSS/style.css">
-    <!-- Carichiamo il file JS nell'Head -->
     <script src="components.js" defer></script>
 </head>
 <body>
 
-    <!-- Segnaposto per Header e Nav -->
     <div id="header-placeholder"></div>
 
     <main>
-        <h2>Questa è la Pagina 3</h2>
-        <p>Qui metteremo i contenuti della pagina 3.</p>
+        <section class="section-internal reveal-up">
+            <div class="container-internal">
+                
+                <!-- Testata della sezione -->
+                <div class="header-internal">
+                    <span class="badge-crema">OUR MACHINE</span>
+                    <h2 class="title-internal">Il Modellino</h2>
+                    <!-- Se vuoi la linea oro come nello screenshot, tieni questa riga. 
+                         Se vuoi l'effetto pulito di Pagina 1, cancellala -->
+                    <div class="underline-internal"></div> 
+                    
+                    <p class="desc-internal">
+                        Il nostro modellino F1, progettato con cura nei minimi dettagli per massimizzare velocità e aerodinamica.
+                    </p>
+                </div>
+
+                <!-- Card grande per l'immagine -->
+                <div class="card card-wide-internal reveal-up delay-1">
+                    <div class="card-inner" style="text-align: center;">
+                        <!-- Sostituisci "img/tuo-modellino.png" con il nome reale del tuo file -->
+                        <img src="img/tuo-modellino.png" alt="Modellino F1" class="img-model-display">
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
 
-    <!-- Segnaposto per il Footer -->
     <div id="footer-placeholder"></div>
 
 </body>
