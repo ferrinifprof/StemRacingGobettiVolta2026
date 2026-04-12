@@ -25,66 +25,45 @@ const footerHTML = `
         <div class="footer-container">
             <div class="footer-column">
                 <a href="mailto:gobettivoltacorse@gmail.com"><strong>Contatti</strong></a><br>
-                Istituto Statale di Istruzione Superiore<br> “Piero Gobetti – Alessandro Volta”
+                ISIS Gobetti-Volta
             </div>
             <div class="footer-column">
                 <strong><a href="privacy-policy.html">Privacy Policy</a></strong><br>
-                <span>Progetto didattico a cura degli studenti del TEAM dell'istituto GOBETTI VOLTA che partecipano al progetto STEM RACING</span>
+                <span>Progetto didattico STEM RACING</span>
             </div>
             <div class="footer-column">
-                © 2026 Realizzato dagli studenti<br> con HTML & CSS & JS
+                © 2026 Realizzato dagli studenti
             </div>
         </div>
     </footer>
 `;
 
-// 1. IL SENSORE DELLE ANIMAZIONI
 function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
             } else {
-                // Rimuove la classe quando esci (così l'effetto si ripete tornando su)
                 entry.target.classList.remove('active');
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 }); // Soglia molto bassa per attivazione immediata
 
     document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
 }
 
-// 2. IL MONTAGGIO DEI PEZZI
 function mountComponents() {
-    const hPlaceholder = document.getElementById('header-placeholder');
-    const fPlaceholder = document.getElementById('footer-placeholder');
+    document.getElementById('header-placeholder').innerHTML = headerHTML;
+    document.getElementById('footer-placeholder').innerHTML = footerHTML;
 
-    if (hPlaceholder) hPlaceholder.innerHTML = headerHTML;
-    if (fPlaceholder) fPlaceholder.innerHTML = footerHTML;
-
-    // ATTIVAZIONE HAMBURGER (Solo dopo che l'header è stato iniettato!)
     const btn = document.getElementById('hamburger');
     const menu = document.getElementById('nav-menu');
 
     if (btn && menu) {
-        btn.onclick = function() {
-            menu.classList.toggle('show');
-            btn.innerHTML = menu.classList.contains('show') ? '&times;' : '&#9776;';
-        };
-        
-        // Chiudi menu al click sui link
-        document.querySelectorAll('#nav-menu a').forEach(link => {
-            link.onclick = () => {
-                menu.classList.remove('show');
-                btn.innerHTML = '&#9776;';
-            };
-        });
+        btn.onclick = () => menu.classList.toggle('show');
     }
 
-    // ATTIVAZIONE ANIMAZIONI
     initAnimations();
-
-    // ACCENDI LE LUCI
     document.body.style.visibility = 'visible';
 }
 

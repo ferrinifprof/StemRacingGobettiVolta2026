@@ -382,15 +382,22 @@ footer {
     padding: 0 20px;
 }
 
-/* Riduzione spazio verticale per le pagine interne */
+/* --- FIX SCROLL PRECISO --- */
 .section-internal {
-    padding: 30px 0 !important; /* Molto meno spazio sopra e sotto */
+    /* Impedisce alla Navbar di coprire il titolo della sezione quando clicchi */
+    scroll-margin-top: 90px; 
 }
 
 /* Header di sezione rimpicciolito */
 .header-internal {
     text-align: center;
     margin-bottom: 30px;
+}
+
+
+/* Forza la sezione a occupare spazio per spingere via quella sopra */
+#crew {
+    min-height: 90vh; /* Occupa quasi tutto lo schermo in altezza */
 }
 
 /* Il Badge in color CREMA */
@@ -429,6 +436,11 @@ footer {
     margin: 0 auto;
     color: #94a3b8;
     line-height: 1.5;
+}
+
+/* Assicuriamoci che la sezione occupi abbastanza spazio verticale */
+#sezione-team {
+    min-height: 80vh; /* Forza la sezione a essere alta quasi quanto lo schermo */
 }
 
 /* Griglia per Pagina 1 (4 colonne compatte) */
