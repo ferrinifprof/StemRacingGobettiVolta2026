@@ -32,18 +32,21 @@ const footerHTML = `
                 <span>Progetto didattico a cura degli studenti del TEAM dell'istituto GOBETTI VOLTA che partecipano al progetto STEM RACING</span>
             </div>
             <div class="footer-column">
-                © 2026 Realizzato dagli studenti con HTML & CSS & JS
+                © 2026 Realizzato dagli studenti<br> con HTML & CSS & JS
             </div>
         </div>
     </footer>
 `;
 
-// Funzione che attiva l'osservatore per le animazioni (reveal-up)
+// 1. IL SENSORE DELLE ANIMAZIONI
 function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+            } else {
+                // Rimuove la classe quando esci (così l'effetto si ripete tornando su)
+                entry.target.classList.remove('active');
             }
         });
     }, { threshold: 0.1 });
@@ -51,6 +54,7 @@ function initAnimations() {
     document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
 }
 
+// 2. IL MONTAGGIO DEI PEZZI
 function mountComponents() {
     const hPlaceholder = document.getElementById('header-placeholder');
     const fPlaceholder = document.getElementById('footer-placeholder');
@@ -58,37 +62,30 @@ function mountComponents() {
     if (hPlaceholder) hPlaceholder.innerHTML = headerHTML;
     if (fPlaceholder) fPlaceholder.innerHTML = footerHTML;
 
-    // Logica Hamburger
+    // ATTIVAZIONE HAMBURGER (Solo dopo che l'header è stato iniettato!)
     const btn = document.getElementById('hamburger');
     const menu = document.getElementById('nav-menu');
+
     if (btn && menu) {
-        btn.addEventListener('click', () => {
+        btn.onclick = function() {
             menu.classList.toggle('show');
+            btn.innerHTML = menu.classList.contains('show') ? '&times;' : '&#9776;';
+        };
+        
+        // Chiudi menu al click sui link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.onclick = () => {
+                menu.classList.remove('show');
+                btn.innerHTML = '&#9776;';
+            };
         });
     }
 
-    // ATTIVIAMO LE ANIMAZIONI E ACCENDIAMO LE LUCI
+    // ATTIVAZIONE ANIMAZIONI
     initAnimations();
+
+    // ACCENDI LE LUCI
     document.body.style.visibility = 'visible';
 }
 
 window.addEventListener('DOMContentLoaded', mountComponents);
-
-const btn = document.getElementById('hamburger');
-const menu = document.getElementById('nav-menu');
-
-if (btn && menu) {
-    btn.onclick = function() {
-        menu.classList.toggle('show');
-        // Opzionale: cambia il simbolo da ☰ a ✕
-        btn.innerHTML = menu.classList.contains('show') ? '&times;' : '&#9776;';
-    };
-}
-
-// Chiudi il menu se clicchi su un link (fondamentale su mobile)
-document.querySelectorAll('#nav-menu a').forEach(link => {
-    link.onclick = () => {
-        menu.classList.remove('show');
-        btn.innerHTML = '&#9776;';
-    };
-});
