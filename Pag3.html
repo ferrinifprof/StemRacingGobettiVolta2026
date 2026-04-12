@@ -50,31 +50,93 @@
 
             <!-- Griglia per le 3 foto piccole -->
             <div class="grid-gallery-3">
-                
-                <div class="card card-compact reveal-up">
-                    <div class="card-inner">
-                        <img src="img/Dettaglio01.jpg" alt="Dettaglio 1" class="img-gallery-small">
-                    </div>
+              <!-- Foto 1 -->
+              <div class="card card-compact reveal-up" onclick="openLightbox(0)">
+                <div class="card-inner">
+                  <img src="img/Dettaglio01.jpg" alt="Dettaglio 1" class="img-gallery-small">
                 </div>
+              </div>
 
-                <div class="card card-compact reveal-up delay-1">
-                    <div class="card-inner">
-                        <img src="img/Dettaglio02.jpg" alt="Dettaglio 2" class="img-gallery-small">
-                    </div>
+              <!-- Foto 2 -->
+              <div class="card card-compact reveal-up delay-1" onclick="openLightbox(1)">
+                <div class="card-inner">
+                  <img src="img/Dettaglio02.jpg" alt="Dettaglio 2" class="img-gallery-small">
                 </div>
+              </div>
 
-                <div class="card card-compact reveal-up delay-2">
-                    <div class="card-inner">
-                        <img src="img/Dettaglio03.jpg" alt="Dettaglio 3" class="img-gallery-small">
-                    </div>
+              <!-- Foto 3 -->
+              <div class="card card-compact reveal-up delay-2" onclick="openLightbox(2)">
+                <div class="card-inner">
+                  <img src="img/Dettaglio03.jpg" alt="Dettaglio 3" class="img-gallery-small">
                 </div>
+              </div>
+        </div>
 
-            </div>
+<!-- STRUTTURA DELLA LIGHTBOX (Invisibile all'inizio) -->
+<div id="lightbox" class="lightbox-overlay">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    
+    <button class="lightbox-prev" onclick="changeImg(-1)">&#10094;</button>
+    
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Dettaglio Ingrandito">
+        <div id="lightbox-caption"></div>
+    </div>
+    
+    <button class="lightbox-next" onclick="changeImg(1)">&#10095;</button>
+</div>
+
         </div>
     </section>
 </main>
+ <script>
+        // 1. Definiamo l'elenco delle immagini e delle didascalie
+        const galleryImages = ["img/Dettaglio01.jpg", "img/Dettaglio02.jpg", "img/Dettaglio03.jpg"];
+        const galleryCaptions = ["Dettaglio Aerodinamico Frontale", "Vasca in Fibra di Carbonio", "Sospensioni e Assetto"];
+        let currentIndex = 0;
 
+        // 2. Funzione per aprire il pop-up
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            document.getElementById("lightbox").style.display = "flex";
+            document.body.style.overflow = "hidden"; // Blocca lo scroll del sito sotto
+        }
+
+        // 3. Funzione per chiudere il pop-up
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+            document.body.style.overflow = "auto"; // Riattiva lo scroll
+        }
+
+        // 4. Funzione per cambiare immagine (frecce)
+        function changeImg(n) {
+            currentIndex += n;
+            if (currentIndex >= galleryImages.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = galleryImages.length - 1;
+            updateLightbox();
+        }
+
+        // 5. Funzione che aggiorna fisicamente l'immagine mostrata
+        function updateLightbox() {
+            const imgElement = document.getElementById("lightbox-img");
+            const captionElement = document.getElementById("lightbox-caption");
+            
+            imgElement.src = galleryImages[currentIndex];
+            captionElement.innerText = galleryCaptions[currentIndex];
+        }
+
+        // 6. Chiudi se si clicca fuori dall'immagine (sullo sfondo scuro)
+        // Usiamo un controllo per sicurezza: carichiamo questo evento solo se l'elemento esiste
+        window.addEventListener('load', () => {
+            const lb = document.getElementById("lightbox");
+            if(lb) {
+                lb.onclick = function(e) {
+                    if (e.target.id === "lightbox") closeLightbox();
+                };
+            }
+        });
+    </script>
     <div id="footer-placeholder"></div>
-
 </body>
 </html>
