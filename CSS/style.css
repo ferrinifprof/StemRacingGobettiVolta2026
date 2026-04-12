@@ -461,7 +461,20 @@ footer {
     font-size: 0.75rem !important;
     line-height: 1.3 !important;
 }
+/* --- STILE PER LE CARD CLICCABILI --- */
+.card-link {
+    text-decoration: none; /* Toglie la sottolineatura */
+    color: inherit;        /* Eredita il colore bianco del testo */
+    display: block;        /* Fa sì che tutta l'area della card sia cliccabile */
+    width: 100%;
+    height: 100%;
+}
 
+/* Per quando si passa sopra con il mouse */
+.card:has(.card-link):hover {
+    cursor: pointer;
+    border-color: var(--accent); /* Evidenzia il bordo quando è un link */
+}
 /* Card Larga per Pagina 2 */
 .card-wide-internal {
     width: 100%;
