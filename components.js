@@ -25,14 +25,15 @@ const footerHTML = `
         <div class="footer-container">
             <div class="footer-column">
                 <a href="mailto:gobettivoltacorse@gmail.com"><strong>Contatti</strong></a><br>
-                ISIS Gobetti-Volta
+                Istituto Statale di Istruzione Superiore<br>
+                “Piero Gobetti – Alessandro Volta”
             </div>
             <div class="footer-column">
-                <strong><a href="privacy-policy.html">Privacy Policy</a></strong><br>
-                <span>Progetto didattico STEM RACING</span>
+                <strong><a href="privacy-policy.html">Policy per la Privacy</a></strong><br>
+                <span>Progetto didattico a cura degli studenti del TEAM dell'istituto<br> GOBETTI VOLTA che partecipano al progetto STEM RACING</span>
             </div>
             <div class="footer-column">
-                © 2026 Realizzato dagli studenti
+                © 2026 Realizzato dagli studenti<BR> con HTML & CSS & JS
             </div>
         </div>
     </footer>

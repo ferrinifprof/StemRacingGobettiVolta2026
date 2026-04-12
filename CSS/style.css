@@ -481,21 +481,7 @@ footer {
     z-index: 1; /* Sta sotto al testo */
 }
 
-/* --- EFFETTO HOVER: SOLO PER PC CON MOUSE --- */
-@media (hover: hover) {
-    .card:hover {
-        /* La card si alza di 10 pixel */
-        transform: translateY(-10px);
-        /* Il bordo si illumina di oro */
-        border-color: rgba(212, 175, 55, 0.5);
-        cursor: pointer;
-    }
 
-    .card:hover::before {
-        /* Fa scivolare il gradiente oro da sinistra */
-        transform: translateX(0);
-    }
-}
 
 /* --- COMPORTAMENTO PER DISPOSITIVI TOUCH (SMARTPHONE/TABLET) --- */
 /* Qui definiamo cosa succede quando si tocca col dito: 
@@ -603,21 +589,42 @@ footer {
 
 .reveal-up {
     opacity: 0;
-    /* Parte 50 pixel più in basso */
     transform: translateY(50px); 
-    
-    /* Il segreto è questa curva di velocità: parte veloce e frena dolcemente */
-    transition: 
-        opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
-        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    
-    will-change: transform, opacity; /* Ottimizza le prestazioni */
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
 }
 
-/* Questa classe viene aggiunta dal JavaScript quando l'elemento entra nello schermo */
 .reveal-up.active {
     opacity: 1;
-    transform: translateY(0); /* Arriva alla posizione finale */
+    transform: translateY(0); 
+}
+
+/* --- EFFETTO HOVER UNIFICATO (PC CON MOUSE) --- */
+/* Lo mettiamo dopo le regole .active così ha la precedenza */
+@media (hover: hover) {
+    .card:hover {
+        /* Usiamo !important per assicurarci che il salto avvenga 
+           anche se la card è in stato "active" */
+        transform: translateY(-10px) !important;
+        border-color: rgba(212, 175, 55, 0.5) !important;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .card:hover::before {
+        /* Fa scivolare il gradiente oro da sinistra */
+        transform: translateX(0);
+    }
+}
+
+/* Comportamento per il tocco (Smartphone) resta invariato */
+@media (hover: none) {
+    .card:active {
+        background: rgba(212, 175, 55, 0.15);
+        transform: scale(0.98);
+        transition: 0.1s;
+    }
 }
 
 /* --- RITARDI (DELAY) PER L'EFFETTO A CASCATA --- */
