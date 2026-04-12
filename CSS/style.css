@@ -439,12 +439,55 @@ footer {
     margin-top: 20px;
 }
 .card {
-    background: rgba(255, 255, 255, 0.05); /* Sfondo scuro semitrasparente */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordino esile */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 25px 20px;
     text-align: center;
-    transition: all 0.4s var(--ease);
+    position: relative; /* Necessario per posizionare il gradiente interno */
+    overflow: hidden;   /* Impedisce al gradiente di uscire dai bordi arrotondati */
+    
+    /* Transizione per il sollevamento (morbida stile Apple) */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+/* --- L'EFFETTO GRADIENTE ORO (Invisibile di base) --- */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Gradiente Oro sfumato da sinistra a destra */
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.15) 0%, transparent 100%);
+    
+    /* Lo spostiamo tutto a sinistra fuori dalla visuale */
+    transform: translateX(-100%);
+    transition: transform 0.6s ease-out;
+    z-index: 1; /* Sta sotto al testo */
+}
+
+/* --- EFFETTO HOVER (Quando passi il mouse) --- */
+.card:hover {
+    /* 1. Alza la card di 10 pixel */
+    transform: translateY(-10px);
+    /* 2. Colora il bordo di Oro */
+    border-color: rgba(212, 175, 55, 0.5);
+    cursor: pointer;
+}
+
+.card:hover::before {
+    /* 3. Fa scivolare il gradiente dentro la card */
+    transform: translateX(0);
+}
+
+/* --- PROTEZIONE DEL TESTO --- */
+/* Assicuriamoci che il contenuto (testo e icone) rimanga sopra il gradiente */
+.card-inner {
+    position: relative;
+    z-index: 2; /* Sta sopra al gradiente ::before */
 }
 /* Card rimpicciolite per notebook */
 .card-compact {
@@ -462,12 +505,19 @@ footer {
     line-height: 1.3 !important;
 }
 /* --- STILE PER LE CARD CLICCABILI --- */
-.card-link {
-    text-decoration: none; /* Toglie la sottolineatura */
-    color: inherit;        /* Eredita il colore bianco del testo */
-    display: block;        /* Fa sì che tutta l'area della card sia cliccabile */
+.card-link, 
+.card-link:link, 
+.card-link:visited, 
+.card-link:hover, 
+.card-link:active {
+    text-decoration: none !important; /* Toglie la sottolineatura blu */
+    color: inherit !important;        /* Forza il colore bianco ereditato dalla card */
+    display: block;
     width: 100%;
     height: 100%;
+    outline: none;
+    /* Toglie l'alone grigio/blu che appare sui telefoni quando tocchi la card */
+    -webkit-tap-highlight-color: transparent; 
 }
 
 /* Per quando si passa sopra con il mouse */
