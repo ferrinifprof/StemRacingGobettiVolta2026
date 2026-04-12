@@ -685,16 +685,20 @@ footer {
 /* --- STILE SPECIFICO PER L'IMMAGINE DEL MODELLINO --- */
 
 .img-model-display {
-    max-width: 80%;    /* L'immagine non esce mai dal box */
-    height: auto;       /* Mantiene le proporzioni */
-    border-radius: 8px; /* Angoli leggermente smussati */
-    
-    /* Leggero effetto ombra per farla risaltare sullo sfondo scuro della card */
+    width: 60%;         /* Default per PC */
+    height: auto;
+    border-radius: 8px;
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-    
-    /* Rimpiccioliamola leggermente per dare "aria" dentro la card */
-    padding: 20px;
+    transition: transform 0.3s ease;
 }
+
+/* AGGIUSTAMENTO PER MOBILE: Sotto i 768px si allarga */
+@media (max-width: 768px) {
+    .img-model-display {
+        width: 95%;     /* Quasi a tutto schermo su smartphone */
+    }
+}
+
 /* Effetto zoom quando passi sopra l'immagine principale */
 .card:hover .img-model-display {
     transform: scale(1.03);
@@ -704,38 +708,44 @@ footer {
    SEZIONE 9. STILE LIGHTBOX (POP-UP GALLERY)
    ========================================================================== */
 .lightbox-overlay {
-    display: none; /* Nascosta di base */
+    display: none; /* Inizialmente nascosto, JS userà 'flex' per aprirlo */
     position: fixed;
-    z-index: 5000; /* Sopra a tutto */
+    z-index: 5000;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px); /* Sfoca il sito dietro */
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    
+    /* Allineamento orizzontale di Frecce e Contenuto */
     justify-content: center;
     align-items: center;
 }
 
 .lightbox-content {
-    position: relative;
-    max-width: 80%;
-    max-height: 80%;
-    text-align: center;
+    display: flex;
+    flex-direction: column; /* FORZA L'IMMAGINE SOPRA E IL TESTO SOTTO */
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    max-width: 80%; /* Lascia spazio laterale per le frecce su PC */
 }
 
 #lightbox-img {
     max-width: 100%;
-    max-height: 80vh;
+    max-height: 75vh; /* Impedisce alla foto di occupare troppo spazio verticale */
+    width: auto;
+    height: auto;
     border: 2px solid #D4AF37;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    object-fit: contain;
 }
 
-/* Pulsanti di controllo */
+/* CONTROLLI (Frecce e Chiudi) */
 .lightbox-close {
     position: absolute;
     top: 30px; right: 40px;
     color: #fff; font-size: 40px; cursor: pointer;
-    transition: 0.3s;
 }
 
 .lightbox-prev, .lightbox-next {
@@ -744,10 +754,8 @@ footer {
     transform: translateY(-50%);
     background: none; border: none;
     color: #D4AF37; font-size: 50px; cursor: pointer;
-    padding: 20px; transition: 0.3s;
-    user-select: none;
+    padding: 20px;
 }
-
 .lightbox-prev { left: 20px; }
 .lightbox-next { right: 20px; }
 
@@ -758,11 +766,36 @@ footer {
 
 #lightbox-caption {
     color: #D4AF37;
-    margin-top: 15px;
+    margin-top: 20px; /* Spazio tra foto e scritta */
     font-family: 'Segoe UI', sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* FRECCE PIÙ PICCOLE SU MOBILE PER NON COPRIRE LA FOTO */
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 95%; /* Usa più spazio su schermi stretti */
+    }
+    
+    #lightbox-img {
+        max-height: 60vh; /* Ancora più bassa per far stare bene la didascalia */
+    }
+
+    .lightbox-prev, .lightbox-next {
+        font-size: 35px;
+        padding: 10px;
+        background: rgba(0,0,0,0.4); /* Sfondo per non confondersi con la foto */
+        border-radius: 50%;
+        bottom: 20px; /* Spostiamole in basso su mobile per non coprire i lati */
+        top: auto;
+        transform: none;
+    }
+    .lightbox-prev { left: 20%; }
+    .lightbox-next { right: 20%; }
 }
 
 /* ==========================================================================
