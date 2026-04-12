@@ -469,18 +469,30 @@ footer {
     z-index: 1; /* Sta sotto al testo */
 }
 
-/* --- EFFETTO HOVER (Quando passi il mouse) --- */
-.card:hover {
-    /* 1. Alza la card di 10 pixel */
-    transform: translateY(-10px);
-    /* 2. Colora il bordo di Oro */
-    border-color: rgba(212, 175, 55, 0.5);
-    cursor: pointer;
+/* --- EFFETTO HOVER: SOLO PER PC CON MOUSE --- */
+@media (hover: hover) {
+    .card:hover {
+        /* La card si alza di 10 pixel */
+        transform: translateY(-10px);
+        /* Il bordo si illumina di oro */
+        border-color: rgba(212, 175, 55, 0.5);
+        cursor: pointer;
+    }
+
+    .card:hover::before {
+        /* Fa scivolare il gradiente oro da sinistra */
+        transform: translateX(0);
+    }
 }
 
-.card:hover::before {
-    /* 3. Fa scivolare il gradiente dentro la card */
-    transform: translateX(0);
+/* --- COMPORTAMENTO PER DISPOSITIVI TOUCH (SMARTPHONE/TABLET) --- */
+/* Qui definiamo cosa succede quando si tocca col dito: 
+   niente salto, solo un leggero cambio di colore per feedback */
+@media (hover: none) {
+    .card:active {
+        background: rgba(212, 175, 55, 0.1);
+        transition: background 0.1s;
+    }
 }
 
 /* --- PROTEZIONE DEL TESTO --- */
