@@ -73,3 +73,22 @@ function mountComponents() {
 }
 
 window.addEventListener('DOMContentLoaded', mountComponents);
+
+const btn = document.getElementById('hamburger');
+const menu = document.getElementById('nav-menu');
+
+if (btn && menu) {
+    btn.onclick = function() {
+        menu.classList.toggle('show');
+        // Opzionale: cambia il simbolo da ☰ a ✕
+        btn.innerHTML = menu.classList.contains('show') ? '&times;' : '&#9776;';
+    };
+}
+
+// Chiudi il menu se clicchi su un link (fondamentale su mobile)
+document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.onclick = () => {
+        menu.classList.remove('show');
+        btn.innerHTML = '&#9776;';
+    };
+});
