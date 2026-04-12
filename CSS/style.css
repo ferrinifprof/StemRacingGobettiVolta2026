@@ -710,7 +710,30 @@ footer {
         width: 95%;
         padding: 5px 10px;
     }
-    
+    /* Forza il contenitore a incolonnare e centrare tutto */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; 
+        gap: 30px; /* Spazio tra le colonne impilate */
+    }
+
+    /* Forza TUTTE le colonne a centrare il testo, ignorando le regole desktop */
+    .footer-column, 
+    .footer-column:nth-child(2), 
+    .footer-column:last-child {
+        text-align: center !important; 
+        flex: none;
+        width: 100%;
+    }
+
+    /* Assicuriamoci che anche i link e gli span siano centrati */
+    .footer-column a, 
+    .footer-column span, 
+    .footer-column strong {
+        display: block; /* Li mette uno sotto l'altro per centrarli meglio */
+        text-align: center;
+    }
     .logo-piccolo { height: 30px; } /* Più piccolo su mobile */
     .logo-grande { display: none; }  /* Nascondiamo il logo lungo per fare spazio */
     
