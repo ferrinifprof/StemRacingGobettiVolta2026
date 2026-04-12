@@ -371,7 +371,7 @@ footer {
     text-decoration: underline;
 }
 /* ==========================================================================
-   SEZIONE 9. STILI SPECIFICI PER PAGINE INTERNE (PAG1 E PAG2)
+   SEZIONE 9. STILI SPECIFICI PER PAGINE INTERNE (PAG1 E PAG2 E PAG3)
    Questi stili non toccano la Homepage.
    ========================================================================== */
 
@@ -386,6 +386,12 @@ footer {
 .section-internal {
     /* Impedisce alla Navbar di coprire il titolo della sezione quando clicchi */
     scroll-margin-top: 90px; 
+}
+
+/* --- FIX SCROLL PRECISO PER TUTTE LE SEZIONI --- */
+#crew, #scuola, #missione, #posizione {
+    scroll-margin-top: 100px; /* Spazio per la Navbar */
+    min-height: 70vh;        /* Altezza minima per spingere via il contenuto precedente */
 }
 
 /* Header di sezione rimpicciolito */
@@ -438,6 +444,27 @@ footer {
     line-height: 1.5;
 }
 
+/* --- GALLERY A 3 COLONNE --- */
+.grid-gallery-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonne uguali */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.img-gallery-small {
+    width: 100%;
+    height: 180px;      /* Altezza fissa per tenerle ordinate */
+    object-fit: cover;  /* Taglia l'immagine senza schiacciarla */
+    border-radius: 6px;
+}
+
+/* --- FIX SCROLL PER LA GALLERY --- */
+#gallery-tecnica {
+    scroll-margin-top: 100px;
+    min-height: 80vh;
+}
+
 /* Assicuriamoci che la sezione occupi abbastanza spazio verticale */
 #sezione-team {
     min-height: 80vh; /* Forza la sezione a essere alta quasi quanto lo schermo */
@@ -481,7 +508,29 @@ footer {
     z-index: 1; /* Sta sotto al testo */
 }
 
+/* --- STILE PER LA MAPPA --- */
+.map-container {
+    width: 100%;
+    height: 300px; /* Altezza della mappa */
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.3); /* Bordino oro esile */
+}
 
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* EFFETTO DARK: Rende la mappa scura per adattarsi al sito (opzionale) */
+    filter: grayscale(1) invert(0.9) contrast(1.2);
+}
+
+/* Rimuoviamo l'inversione colore quando ci si passa sopra col mouse per vedere i colori reali */
+.map-container:hover iframe {
+    filter: none;
+    transition: filter 0.5s ease;
+}
 
 /* --- COMPORTAMENTO PER DISPOSITIVI TOUCH (SMARTPHONE/TABLET) --- */
 /* Qui definiamo cosa succede quando si tocca col dito: 
@@ -636,7 +685,7 @@ footer {
 /* --- STILE SPECIFICO PER L'IMMAGINE DEL MODELLINO --- */
 
 .img-model-display {
-    max-width: 100%;    /* L'immagine non esce mai dal box */
+    max-width: 80%;    /* L'immagine non esce mai dal box */
     height: auto;       /* Mantiene le proporzioni */
     border-radius: 8px; /* Angoli leggermente smussati */
     
@@ -645,6 +694,10 @@ footer {
     
     /* Rimpiccioliamola leggermente per dare "aria" dentro la card */
     padding: 20px;
+}
+/* Effetto zoom quando passi sopra l'immagine principale */
+.card:hover .img-model-display {
+    transform: scale(1.03);
 }
 /* ==========================================================================
    SEZIONE 9. RESPONSIVE DESIGN (SOLUZIONE DEFINITIVA MOBILE)

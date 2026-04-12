@@ -11,34 +11,68 @@
 
     <div id="header-placeholder"></div>
 
-    <main>
-        <section class="section-internal reveal-up">
-            <div class="container-internal">
+<main>
+    <section class="section-internal reveal-up">
+        <div class="container-internal">
+            
+            <div class="header-internal">
+                <span class="badge-crema">OUR MACHINE</span>
+                <h2 class="title-internal">Il Modellino</h2>
+                <div class="underline-internal"></div> 
+                <p class="desc-internal">
+                    Il nostro modellino F1, progettato con cura nei minimi dettagli per massimizzare velocità e aerodinamica.
+                </p>
+            </div>
+
+            <!-- Card con l'immagine cliccabile -->
+            <div class="card card-wide-internal reveal-up delay-1">
+                <a href="#gallery-tecnica" class="card-link"> <!-- Salto verso la gallery -->
+                    <div class="card-inner" style="text-align: center;">
+                        <img src="img/savethedate.png" alt="Modellino F1" class="img-model-display">
+                        <p style="margin-top: 15px; font-size: 0.7rem; color: var(--accent); opacity: 0.7;">
+                            (Clicca l'immagine per vedere i dettagli)
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NUOVA SEZIONE: GALLERY DETTAGLI -->
+    <section id="gallery-tecnica" class="section-internal reveal-up" style="margin-top: 50px;">
+        <div class="container-internal">
+            <div class="header-internal">
+                <span class="badge-crema">DETAILS</span>
+                <h2 class="title-internal">Gallery Tecnica</h2>
+                <div class="underline-internal"></div>
+            </div>
+
+            <!-- Griglia per le 3 foto piccole -->
+            <div class="grid-gallery-3">
                 
-                <!-- Testata della sezione -->
-                <div class="header-internal">
-                    <span class="badge-crema">OUR MACHINE</span>
-                    <h2 class="title-internal">Il Modellino</h2>
-                    <!-- Se vuoi la linea oro come nello screenshot, tieni questa riga. 
-                         Se vuoi l'effetto pulito di Pagina 1, cancellala -->
-                    <div class="underline-internal"></div> 
-                    
-                    <p class="desc-internal">
-                        Il nostro modellino F1, progettato con cura nei minimi dettagli per massimizzare velocità e aerodinamica.
-                    </p>
+                <div class="card card-compact reveal-up">
+                    <div class="card-inner">
+                        <img src="img/Dettaglio01.jpg" alt="Dettaglio 1" class="img-gallery-small">
+                    </div>
                 </div>
 
-                <!-- Card grande per l'immagine -->
-                <div class="card card-wide-internal reveal-up delay-1">
-                    <div class="card-inner" style="text-align: center;">
-                        <!-- Sostituisci "img/tuo-modellino.png" con il nome reale del tuo file -->
-                        <img src="img/tuo-modellino.png" alt="Modellino F1" class="img-model-display">
+                <div class="card card-compact reveal-up delay-1">
+                    <div class="card-inner">
+                        <img src="img/Dettaglio02.jpg" alt="Dettaglio 2" class="img-gallery-small">
+                    </div>
+                </div>
+
+                <div class="card card-compact reveal-up delay-2">
+                    <div class="card-inner">
+                        <img src="img/Dettaglio03.jpg" alt="Dettaglio 3" class="img-gallery-small">
                     </div>
                 </div>
 
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
     <div id="footer-placeholder"></div>
 
