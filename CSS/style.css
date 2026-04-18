@@ -152,6 +152,49 @@ main h2 {
 /* ==========================================================================
    5. COMPONENTI: LISTA LINK (BOTTONI RACING)
    ========================================================================== */
+* --- 1. RISORSE UFFICIALI (Testo Bianco Grassetto -> Oro) --- */
+.lista-link-clean li {
+    margin-bottom: 15px;
+}
+
+.lista-link-clean a {
+    color: #ffffff !important;   /* Bianco di base */
+    text-decoration: none;
+    font-weight: bold;           /* Grassetto come richiesto */
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.lista-link-clean a:hover {
+    color: var(--accent) !important; /* Diventa Oro al passaggio */
+}
+
+/* --- 2. PORTFOLIO: IMMAGINI ADATTATE ALLA LARGHEZZA --- */
+/* Creiamo una classe specifica per le anteprime dei portfolio */
+.portfolio-preview {
+    width: 100%;              /* Occupa tutta la larghezza della card */
+    height: 120px;            /* Altezza fissa per mantenere l'ordine */
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;         /* Taglia l'eccedenza */
+    border: 1px solid var(--glass-border);
+}
+
+.portfolio-preview img {
+    width: 100%;              /* Forza l'adattamento alla larghezza */
+    height: 100%;             /* Riempie l'altezza definita */
+    object-fit: cover;        /* Copre l'area senza deformarsi, ritagliando il necessario */
+    display: block;
+}
+
+/* --- 3. FIX CAROUSEL (Niente salto) --- */
+.no-hover-lift:hover {
+    transform: none !important; /* Impedisce il sollevamento di 10px */
+    border-color: var(--glass-border) !important; /* Mantiene il bordo originale o quello che preferisci */
+}
+
 .lista-link {
     list-style: none;
     margin-top: 20px;
