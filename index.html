@@ -16,75 +16,95 @@
 
 <main class="due-colonne">
     <div class="container-principale">
-      <div class="sinistra reveal-up">
-        <h2>Risorse e Collaborazioni</h2>
-        <div class="calendario">
-            <div class="calendario-titolo" onclick="toggleEvents()">
-                PROSSIMI EVENTI (Clicca qui)
-            </div>
-            <div class="calendario-corpo" id="lista-eventi">
-                <p>15/04 - Consegna e-Portfolio</p>
-                <p>18/04 - Controlli della Giuria</p>
-                <p>19/04 - Gara e Premiazioni</p>
+      
+      <!-- COLONNA SINISTRA (70%) -->
+      <div class="sinistra">
+        
+        <!-- SEZIONE RISORSE: Ora è la prima -->
+        <h2 class="reveal-up">Risorse Ufficiali</h2>
+        <div class="card card-wide-internal reveal-up delay-1" style="margin-bottom: 40px;">
+            <div class="card-inner">
+                <ul class="lista-link-clean">
+                    <li><a href="https://share.google/xZEEX67fWkfBm6HQm" target="_blank">→ Sfida multidisciplinare Stem Racing Italy</a></li>
+                    <li><a href="https://share.google/TUR9yPPHtedgA4JXF" target="_blank">→ STEM Racing Global (Sito Ufficiale)</a></li>
+                </ul>
             </div>
         </div>
-        <p>Esplora i materiali ufficiali del progetto:</p>
-        <ul class="lista-link">
-             <li>
-                <a href="https://share.google/xZEEX67fWkfBm6HQm" target="_blank">
-                    Sfida multidisciplinare studenti - Stem Racing Italy
+
+        <!-- SEZIONE E-PORTFOLIO: Ora è la seconda -->
+        <h2 class="reveal-up">I nostri e-Portfolio</h2>
+        <div class="grid-internal-3">
+            <!-- Portfolio 1 -->
+            <div class="card card-compact reveal-up delay-2">
+                <a href="https://www.canva.com/design/DAHGfFAcV1I/--ZNl_GFJ5Qqh2x1ffzD1g/edit" target="_blank" class="card-link">
+                    <div class="card-inner">
+                        <div class="avatar-placeholder">
+                            <img src="img/index/portfolio_pm.png" alt="PM" class="member-img">
+                        </div>
+                        <h3>Project Management</h3>
+                        <p>Gestione e pianificazione</p>
+                    </div>
                 </a>
-             </li>
-             <li>
-                 <a href="https://share.google/TUR9yPPHtedgA4JXF" target="_blank">
-                     STEM Racing Global (Sito Ufficiale)
-                 </a>
-             </li>
-             <li>
-                 <a href="https://www.canva.com/design/DAHGfFAcV1I/--ZNl_GFJ5Qqh2x1ffzD1g/edit" target="_blank">
-                     This is... GobettiVolta Corse <strong>PROJECT MANAGEMENT</strong>
-                 </a>
-             </li>
-             <li>
-                 <a href="https://www.canva.com/design/DAHCztr78yY/FfmP80tfwVACLcEtBcXlaw/edit" target="_blank">
-                     This is... GobettiVolta Corse <strong>ENTERPRISE</strong>
-                 </a>
-             </li>
-             <li>
-                 <a href="https://www.canva.com/design/DAHGRlRrwQw/6kdlnYAI3IL8elsGqT0h7Q/edit" target="_blank">
-                     This is... GobettiVolta Corse <strong>DESIGN&ENGINEERING</strong>
-                 </a>
-             </li>  
-         </ul>
+            </div>
+            <!-- Portfolio 2 -->
+            <div class="card card-compact reveal-up delay-3">
+                <a href="https://www.canva.com/design/DAHCztr78yY/FfmP80tfwVACLcEtBcXlaw/edit" target="_blank" class="card-link">
+                    <div class="card-inner">
+                        <div class="avatar-placeholder">
+                            <img src="img/index/portfolio_enterprise.png" alt="Enterprise" class="member-img">
+                        </div>
+                        <h3>Enterprise</h3>
+                        <p>Strategia e Business</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Portfolio 3 -->
+            <div class="card card-compact reveal-up delay-4">
+                <a href="https://www.canva.com/design/DAHGRlRrwQw/6kdlnYAI3IL8elsGqT0h7Q/edit" target="_blank" class="card-link">
+                    <div class="card-inner">
+                        <div class="avatar-placeholder">
+                            <img src="img/index/portfolio_des_eng.png" alt="Engineering" class="member-img">
+                        </div>
+                        <h3>Design & Engineering</h3>
+                        <p>Progettazione tecnica</p>
+                    </div>
+                </a>
+            </div>
+        </div>
      </div>
      
-     <div class="destra reveal-up delay-1">
-    <h2>In Primo Piano</h2>
-    
-    <div class="carousel-container">
-        <!-- Le immagini -->
-        <div class="slide active">
-            <img src="img/Foto01.jpg" alt="Foto 1">
-        </div>
-        <div class="slide">
-            <img src="img/Foto02.jpg" alt="Foto 2">
-        </div>
-        <div class="slide">
-            <img src="img/Foto03.jpg" alt="Foto 3">
+     <!-- COLONNA DESTRA (30%) -->
+     <div class="destra">
+        <h2 class="reveal-up">In Primo Piano</h2>
+        <!-- Aggiunta classe 'no-hover-lift' per bloccare il salto -->
+        <div class="card reveal-up delay-1 no-hover-lift" style="padding: 10px;">
+            <div class="carousel-container" style="border:none; height: 200px;">
+                <div class="slide active"><img src="img/Foto01.jpg" alt="Foto 1"></div>
+                <div class="slide"><img src="img/Foto02.jpg" alt="Foto 2"></div>
+                <div class="slide"><img src="img/Foto03.jpg" alt="Foto 3"></div>
+                <button class="prev" onclick="cambiaSlide(-1)">&#10094;</button>
+                <button class="next" onclick="cambiaSlide(1)">&#10095;</button>
+
+                <div class="dots-container">
+                    <span class="dot active" onclick="vaiAllaSlide(0)"></span>
+                    <span class="dot" onclick="vaiAllaSlide(1)"></span>
+                    <span class="dot" onclick="vaiAllaSlide(2)"></span>
+                </div>
+            </div>
         </div>
 
-        <!-- Bottoni Avanti e Indietro -->
-        <button class="prev" onclick="cambiaSlide(-1)">&#10094;</button>
-        <button class="next" onclick="cambiaSlide(1)">&#10095;</button>
-
-        <!-- I puntini (Dots) -->
-        <div class="dots-container">
-            <span class="dot active" onclick="vaiAllaSlide(0)"></span>
-            <span class="dot" onclick="vaiAllaSlide(1)"></span>
-            <span class="dot" onclick="vaiAllaSlide(2)"></span>
+        <h2 class="reveal-up delay-2" style="margin-top: 30px;">Agenda</h2>
+        <div class="calendario reveal-up delay-3" style="max-width: 100%;">
+            <div class="calendario-titolo" onclick="toggleEvents()">
+                PROSSIMI EVENTI (APRI)
+            </div>
+            <div class="calendario-corpo" id="lista-eventi">
+                <p><strong>15/04</strong> - Consegna e-Portfolio</p>
+                <p><strong>18/04</strong> - Controlli Giuria</p>
+                <p><strong>19/04</strong> - Gara e Premiazioni</p>
+            </div>
         </div>
-    </div>
-</div>
+     </div>
     
   </div>
 </main>
@@ -139,3 +159,4 @@ setInterval(() => {
 </body>
 </html>
 
+  
