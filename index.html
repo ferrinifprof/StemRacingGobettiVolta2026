@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sito Progetto | Home</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Carichiamo il file JS nell'Head -->
     <script src="components.js" defer></script>
 </head>
@@ -79,9 +80,11 @@
         <!-- Aggiunta classe 'no-hover-lift' per bloccare il salto -->
         <div class="card reveal-up delay-1 no-hover-lift" style="padding: 10px;">
             <div class="carousel-container" style="border:none; height: 200px;">
-                <div class="slide active"><img src="img/Foto01.jpg" alt="Foto 1"></div>
-                <div class="slide"><img src="img/Foto02.jpg" alt="Foto 2"></div>
-                <div class="slide"><img src="img/Foto03.jpg" alt="Foto 3"></div>
+                <div class="slide active"><img src="img/carousel-home/Foto01.jpg" alt="Foto 1"></div>
+                <div class="slide"><img src="img/carousel-home/Foto02.jpg" alt="Foto 2"></div>
+                <div class="slide"><img src="img/carousel-home/Foto03.jpg" alt="Foto 3"></div>
+                <div class="slide"><img src="img/carousel-home/Foto04.jpg" alt="Foto 4"></div>
+                <div class="slide"><img src="img/carousel-home/Foto05.jpg" alt="Foto 5"></div>
                 <button class="prev" onclick="cambiaSlide(-1)">&#10094;</button>
                 <button class="next" onclick="cambiaSlide(1)">&#10095;</button>
 
@@ -89,6 +92,8 @@
                     <span class="dot active" onclick="vaiAllaSlide(0)"></span>
                     <span class="dot" onclick="vaiAllaSlide(1)"></span>
                     <span class="dot" onclick="vaiAllaSlide(2)"></span>
+                    <span class="dot" onclick="vaiAllaSlide(3)"></span>
+                    <span class="dot" onclick="vaiAllaSlide(4)"></span>
                 </div>
             </div>
         </div>
