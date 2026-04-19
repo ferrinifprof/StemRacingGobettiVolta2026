@@ -388,6 +388,71 @@ nav.fixed-nav a {
     border-bottom: 1px solid #222;
 }
 
+/* --- FIX LINK NEL CALENDARIO --- */
+.calendario-link {
+    text-decoration: none !important; /* Toglie definitivamente la sottolineatura */
+    color: #ffffff !important;        /* Forza il testo bianco */
+    display: block;                   /* Fa sì che tutta la riga sia cliccabile */
+    transition: all 0.3s var(--ease); /* Movimento fluido */
+}
+
+/* Evitiamo che il link diventi viola dopo il primo click */
+.calendario-link:visited {
+    color: #ffffff !important;
+}
+
+/* Effetto al passaggio del mouse */
+.calendario-link:hover {
+    color: var(--accent) !important;  /* Il testo diventa Oro */
+    transform: translateX(8px);       /* Piccola spinta a destra stile "freccia" */
+}
+
+/* Rendi i grassetti (le date) sempre Oro per risaltare */
+.calendario-link strong {
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+/* Quando passi sopra il link, il grassetto diventa bianco (effetto inversione) */
+.calendario-link:hover strong {
+    color: #ffffff;
+}
+
+/* --- GRIGLIA FOTO DENTRO L'EVENTO --- */
+.event-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonne per tre fotografie per riga*/
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.event-photo-grid img {
+    width: 100%;
+    height: 200px;      /* Altezza fissa per ordine */
+    object-fit: cover;  /* Taglia bene le foto */
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.event-photo-grid img:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+}
+
+/* --- FIX SCROLL PER ANCORE GALLERY --- */
+#giuria, #gara {
+    scroll-margin-top: 120px; /* Lascia spazio alla navbar quando "salti" all'evento */
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .event-photo-grid {
+        grid-template-columns: 1fr; /* Una foto sotto l'altra su mobile */
+    }
+}
+
 /* ==========================================================================
    7. COMPONENTI: IMMAGINI E CAROUSEL
    ========================================================================== */
