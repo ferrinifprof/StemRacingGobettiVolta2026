@@ -47,45 +47,34 @@ const headerHTML = `
         <div class="header-container">
             <button class="menu-btn" id="hamburger">&#9776;</button>
             <img src="${pathPrefix}img/logo_small.png" alt="Logo" class="logo-piccolo">
+            
             <div class="logo-text">
                 <h1>GOBETTI VOLTA CORSE</h1>
                 <p>${isEnglish ? 'Gobetti-Volta Project s.y. 2025/26' : 'Progetto Gobetti-Volta a.s. 2025/26'}</p>
             </div>
             
-            <div class="header-socials desktop-only">
-                <a href="https://www.instagram.com/gobettivoltacorse/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:gobettivoltacorse@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-
-            <!-- SWITCH LINGUA DESKTOP - CORRETTO SU /en/ -->
-            <div class="lang-switch desktop-only">
-                <a href="${pathPrefix}it/${currentPage}" class="${lang === 'it' ? 'active-lang' : ''}">ITA</a> | 
-                <a href="${pathPrefix}en/${currentPage}" class="${lang === 'en' ? 'active-lang' : ''}">ENG</a>
+            <!-- NUOVO CONTENITORE STRUMENTI A DESTRA -->
+            <div class="header-tools">
+                <div class="header-socials">
+                    <a href="https://www.instagram.com/gobettivoltacorse/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:gobettivoltacorse@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                
+                <div class="lang-switch">
+                    <a href="${pathPrefix}it/${currentPage}" class="${lang === 'it' ? 'active-lang' : ''}">ITA</a> | 
+                    <a href="${pathPrefix}en/${currentPage}" class="${lang === 'en' ? 'active-lang' : ''}">ENG</a>
+                </div>
             </div>
 
             <img src="${pathPrefix}img/logo_large.png" alt="Logo Esteso" class="logo-grande">
         </div>
     </header>
-
     <nav id="navbar-sticky">
         <ul id="nav-menu">
             <li><a href="index.html">${t.home}</a></li>
             <li><a href="Pag1.html">${t.crew}</a></li>
             <li><a href="Pag2.html">${t.what}</a></li>
             <li><a href="Pag3.html">${t.exp}</a></li>
-            
-            <!-- EXTRA MOBILE (Lingua e Social) - CORRETTO SU /en/ -->
-            <div class="mobile-extra-tools">
-                <div class="lang-switch-mobile">
-                    <a href="${pathPrefix}it/${currentPage}" class="${lang === 'it' ? 'active-lang' : ''}">ITALIANO</a>
-                    <span>/</span>
-                    <a href="${pathPrefix}en/${currentPage}" class="${lang === 'en' ? 'active-lang' : ''}">ENGLISH</a>
-                </div>
-                <div class="social-mobile">
-                    <a href="https://www.instagram.com/gobettivoltacorse/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:gobettivoltacorse@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
         </ul>
     </nav>
 `;

@@ -1296,6 +1296,54 @@ footer {
     #lightbox-img {
         max-width: 85vw; /* Lascia un po' di spazio ai lati per le frecce */
     }
+    
+    /* 1. Gestione del nuovo contenitore strumenti a destra */
+    .header-tools {
+        display: flex;
+        flex-direction: column; /* Icone sopra, Lingua sotto */
+        align-items: flex-end;  /* Allinea tutto a destra */
+        gap: 8px;               /* Spazio tra icone e lingua */
+        margin-left: 10px;      /* Distanza dal titolo */
+        flex-shrink: 0;         /* Impedisce al blocco di rimpicciolirsi */
+    }
+
+    /* 2. Ottimizzazione icone social per mobile */
+    .header-socials {
+        margin-left: 0;
+        margin-right: 0;
+        gap: 12px;
+    }
+    
+    .header-socials a {
+        font-size: 1rem; /* Leggermente più piccole per stare in riga */
+    }
+
+    /* 3. Ottimizzazione cambio lingua */
+    .lang-switch {
+        display: block !important;
+        font-size: 0.75rem;
+        margin-right: 0;
+    }
+
+    /* 4. Rimpiccioliamo il titolo per farlo stare su meno righe */
+    .logo-text {
+        flex-grow: 1; /* Permette al testo di occupare lo spazio centrale */
+    }
+
+    .logo-text h1 {
+        font-size: 0.95rem; /* Dimensione ridotta per non "esplodere" */
+        line-height: 1.2;
+        white-space: normal; /* Permette il ritorno a capo ma controllato */
+    }
+
+    .logo-text p {
+        font-size: 0.65rem;
+    }
+
+    /* 5. Nascondiamo il logo grande che occupa troppo spazio */
+    .logo-grande {
+        display: none !important;
+    }
 
     /* --- NAVBAR & LOGHI --- */
     .header-container {
