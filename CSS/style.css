@@ -936,7 +936,14 @@ footer {
     letter-spacing: 1px;
     margin-top: 5px;
 }
+/* Nascondi gli strumenti mobile di default su PC */
+.mobile-extra-tools {
+    display: none;
+}
 
+.desktop-only {
+    display: flex;
+}
 /* ==========================================================================
    SEZIONE ANIMAZIONI (LA MACCHININA CHE PARCHEGGIA)
    ========================================================================== */
@@ -1119,6 +1126,55 @@ footer {
     }
     .lightbox-prev { left: 20%; }
     .lightbox-next { right: 20%; }
+}
+
+@media (max-width: 768px) {
+    /* Nascondi icone e lingua dall'header mobile */
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Mostra e formatta gli strumenti dentro il menù hamburger */
+    .mobile-extra-tools {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px; /* Spazio sotto le voci di menù */
+        padding-top: 30px;
+        border-top: 1px solid rgba(212, 175, 55, 0.3); /* Riga di divisione oro sfumata */
+        width: 80%;
+    }
+
+    .lang-switch-mobile {
+        margin-bottom: 25px;
+    }
+
+    .lang-switch-mobile a {
+        color: #888;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: 0.3s;
+    }
+
+    .lang-switch-mobile a.active-lang {
+        color: #D4AF37; /* Oro per la lingua attiva */
+    }
+
+    .lang-switch-mobile span {
+        color: #444;
+        margin: 0 10px;
+    }
+
+    .social-mobile {
+        display: flex;
+        gap: 30px;
+    }
+
+    .social-mobile a {
+        color: #D4AF37;
+        font-size: 1.8rem; /* Icone grandi facili da toccare */
+    }
 }
 
 /* ==========================================================================
