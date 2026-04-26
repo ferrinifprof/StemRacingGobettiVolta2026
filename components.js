@@ -103,8 +103,7 @@ const footerHTML = `
                 ${t.schoolName}
             </div>
             <div class="footer-column">
-                <strong>Link Utili</strong><br>
-                <a href="privacy-policy.html">${t.privacy}</a><br>
+                <strong><a href="privacy-policy.html">${t.privacy}</a></strong><br>
                 <span style="font-size:0.7rem">STEM RACING Project - Team Gobetti Volta</span>
             </div>
             <div class="footer-column">
