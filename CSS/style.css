@@ -1139,6 +1139,34 @@ footer {
         border-top: 1px solid rgba(212, 175, 55, 0.3);
         width: 100%;
     }
+}   .lightbox-prev, .lightbox-next {
+        display: flex !important;    /* Forza la visualizzazione */
+        position: fixed !important;  /* Le ancora allo schermo */
+        top: 50% !important;         /* Le centra verticalmente */
+        transform: translateY(-50%) !important; /* Centratura millimetrica */
+        bottom: auto !important;     /* Annulla il vecchio comando bottom 20px */
+        
+        background: rgba(0, 0, 0, 0.6) !important; /* Sfondo nero più visibile */
+        color: #D4AF37 !important;   /* Oro brillante */
+        
+        width: 50px;                 /* Area di tocco circolare generosa */
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 24px;
+        z-index: 6000 !important;    /* Sopra l'immagine a ogni costo */
+        border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    /* Le stacchiamo leggermente dal bordo per non farle coprire dalle dita */
+    .lightbox-prev { left: 10px !important; }
+    .lightbox-next { right: 10px !important; }
+
+    /* Riduciamo l'immagine per non farla finire SOTTO le frecce */
+    #lightbox-img {
+        max-width: 85vw; /* Lascia un po' di spazio ai lati per le frecce */
+    }
 }
 
     .lang-switch-mobile {
@@ -1240,7 +1268,35 @@ footer {
    ========================================================================== */
 
 @media (max-width: 768px) {
-    
+   .lightbox-prev, .lightbox-next {
+        display: flex !important;    /* Forza la visualizzazione */
+        position: fixed !important;  /* Le ancora allo schermo */
+        top: 50% !important;         /* Le centra verticalmente */
+        transform: translateY(-50%) !important; /* Centratura millimetrica */
+        bottom: auto !important;     /* Annulla il vecchio comando bottom 20px */
+        
+        background: rgba(0, 0, 0, 0.6) !important; /* Sfondo nero più visibile */
+        color: #D4AF37 !important;   /* Oro brillante */
+        
+        width: 50px;                 /* Area di tocco circolare generosa */
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 24px;
+        z-index: 6000 !important;    /* Sopra l'immagine a ogni costo */
+        border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    /* Le stacchiamo leggermente dal bordo per non farle coprire dalle dita */
+    .lightbox-prev { left: 10px !important; }
+    .lightbox-next { right: 10px !important; }
+
+    /* Riduciamo l'immagine per non farla finire SOTTO le frecce */
+    #lightbox-img {
+        max-width: 85vw; /* Lascia un po' di spazio ai lati per le frecce */
+    }
+
     /* --- NAVBAR & LOGHI --- */
     .header-container {
         width: 95%;
