@@ -267,6 +267,39 @@ main h2 {
 .header-socials a:hover {
     color: #D4AF37;
 }
+/* 1. Spingiamo il logo grande a destra (si trascina dietro gli strumenti) */
+.logo-grande {
+    height: 45px;
+    width: auto;
+    margin-left: auto; /* La molla che spinge tutto a destra */
+}
+
+/* 2. Il contenitore che impila Social (sopra) e Lingua (sotto) */
+.header-tools.desktop-only {
+    display: flex !important;
+    flex-direction: column !important; /* Forza l'incolonnamento verticale */
+    align-items: flex-end !important;  /* Allinea le icone e il testo al bordo destro */
+    justify-content: center;
+    gap: 5px;                          /* Spazio tra la riga social e la riga lingua */
+    margin-left: 20px;                 /* Spazio tra il logo grande e gli strumenti */
+}
+
+/* 3. Assicuriamoci che i blocchi interni non provino a scappare a sinistra */
+.header-socials, .lang-switch {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: flex;
+    gap: 12px;
+}
+
+/* Rimpiccioliamo le icone per un look più raffinato */
+.header-socials a {
+    font-size: 0.95rem;
+}
+
+.lang-switch {
+    font-size: 0.75rem;
+}
 
 /* --- ICONE SOCIAL NEL FOOTER --- */
 .footer-socials {
@@ -1298,14 +1331,34 @@ footer {
     }
     
     /* 1. Gestione del nuovo contenitore strumenti a destra */
-    .header-tools {
-        display: flex;
-        flex-direction: column; /* Icone sopra, Lingua sotto */
-        align-items: flex-end;  /* Allinea tutto a destra */
-        gap: 8px;               /* Spazio tra icone e lingua */
-        margin-left: 10px;      /* Distanza dal titolo */
-        flex-shrink: 0;         /* Impedisce al blocco di rimpicciolirsi */
-    }
+/* Trova questa classe e aggiungi margin-left: auto */
+.logo-grande {
+    height: 45px;
+    width: auto;
+    margin-left: auto; /* Questo spinge il logo E tutto ciò che segue a destra */
+}
+
+/* Gestione del contenitore icone + lingua a destra del logo */
+.header-tools {
+    display: flex;
+    flex-direction: column; /* Icone sopra, Lingua sotto */
+    align-items: flex-end;  /* Allinea il contenuto a destra */
+    margin-left: 20px;      /* Spazio dal logo grande */
+    gap: 5px;               /* Spazio tra la riga social e la riga lingua */
+}
+
+/* Rimuovi eventuali margin-left: auto da queste classi se presenti, 
+   altrimenti litigano con il logo grande */
+.header-socials, .lang-switch {
+    margin-left: 0 !important; 
+    display: flex;
+    gap: 10px;
+}
+
+/* Rimpiccioliamo leggermente le icone per non farle sembrare giganti rispetto al logo */
+.header-socials a {
+    font-size: 1rem;
+}
 
     /* 2. Ottimizzazione icone social per mobile */
     .header-socials {

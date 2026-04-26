@@ -41,11 +41,11 @@ const currentPage = window.location.pathname.split("/").pop() || "index.html";
 /* ==========================================================================
    COSTRUZIONE HEADER
    ========================================================================== */
-
 const headerHTML = `
     <header>
         <div class="header-container">
             <button class="menu-btn" id="hamburger">&#9776;</button>
+            
             <img src="${pathPrefix}img/logo_small.png" alt="Logo" class="logo-piccolo">
             
             <div class="logo-text">
@@ -53,23 +53,23 @@ const headerHTML = `
                 <p>${isEnglish ? 'Gobetti-Volta Project s.y. 2025/26' : 'Progetto Gobetti-Volta a.s. 2025/26'}</p>
             </div>
             
-            <!-- NUOVO CONTENITORE STRUMENTI A DESTRA -->
-            <div class="header-tools">
+            <!-- 1. PRIMA IL LOGO GRANDE (margine a sinistra) -->
+            <img src="${pathPrefix}img/logo_large.png" alt="Logo Esteso" class="logo-grande">
+
+            <!-- 2. POI GLI STRUMENTI (all'estrema destra) -->
+            <div class="header-tools desktop-only">
                 <div class="header-socials">
                     <a href="https://www.instagram.com/gobettivoltacorse/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:gobettivoltacorse@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
-                
                 <div class="lang-switch">
                     <a href="${pathPrefix}it/${currentPage}" class="${lang === 'it' ? 'active-lang' : ''}">ITA</a> | 
                     <a href="${pathPrefix}en/${currentPage}" class="${lang === 'en' ? 'active-lang' : ''}">ENG</a>
                 </div>
             </div>
-
-            <img src="${pathPrefix}img/logo_large.png" alt="Logo Esteso" class="logo-grande">
         </div>
     </header>
-    <nav id="navbar-sticky">
+   <nav id="navbar-sticky">
         <ul id="nav-menu">
             <li><a href="index.html">${t.home}</a></li>
             <li><a href="Pag1.html">${t.crew}</a></li>
