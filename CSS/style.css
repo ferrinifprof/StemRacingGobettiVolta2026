@@ -1129,21 +1129,17 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Nascondi icone e lingua dall'header mobile */
-    .desktop-only {
-        display: none !important;
-    }
-
-    /* Mostra e formatta gli strumenti dentro il menù hamburger */
+    /* Forza la visibilità del blocco lingua/social nel menù */
     .mobile-extra-tools {
-        display: flex;
+        display: flex !important; /* Deve esserci !important */
         flex-direction: column;
         align-items: center;
-        margin-top: 40px; /* Spazio sotto le voci di menù */
-        padding-top: 30px;
-        border-top: 1px solid rgba(212, 175, 55, 0.3); /* Riga di divisione oro sfumata */
-        width: 80%;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(212, 175, 55, 0.3);
+        width: 100%;
     }
+}
 
     .lang-switch-mobile {
         margin-bottom: 25px;
