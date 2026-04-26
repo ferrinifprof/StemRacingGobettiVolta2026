@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Model | Gobetti Volta Corse</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="components.js" defer></script>
+    <script src="../components.js" defer></script>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
             <div class="card card-wide-internal reveal-up delay-1">
                 <a href="#gallery-tecnica" class="card-link"> <!-- Salto verso la gallery -->
                     <div class="card-inner" style="text-align: center;">
-                        <img src="img/savethedate.png" alt="Modellino F1" class="img-model-display">
+                        <img src="../img/savethedate.png" alt="Modellino F1" class="img-model-display">
                         <p style="margin-top: 15px; font-size: 0.7rem; color: var(--accent); opacity: 0.7;">
                             (Clicca l'immagine per vedere i dettagli)
                         </p>
@@ -40,38 +40,61 @@
         </div>
     </section>
 
-    <!-- NUOVA SEZIONE: GALLERY DETTAGLI -->
+    <!-- SECTION: TECHNICAL GALLERY -->
     <section id="gallery-tecnica" class="section-internal reveal-up" style="margin-top: 50px;">
         <div class="container-internal">
             <div class="header-internal">
                 <span class="badge-crema">DETAILS</span>
-                <h2 class="title-internal">Gallery Tecnica</h2>
+                <h2 class="title-internal">Technical Gallery</h2>
                 <div class="underline-internal"></div>
             </div>
 
-            <!-- Griglia per le 3 foto piccole -->
+            <!-- Grid for 3 small photos -->
             <div class="grid-gallery-3">
-              <!-- Foto 1 -->
+              <!-- Photo 1 -->
               <div class="card card-compact reveal-up" onclick="openLightbox(0)">
                 <div class="card-inner">
-                  <img src="img/Dettaglio01.jpg" alt="Dettaglio 1" class="img-gallery-small">
+                  <img src="../img/dettaglio/Dettaglio01.jpg" alt="Detail 1" class="img-gallery-small">
                 </div>
               </div>
 
-              <!-- Foto 2 -->
+              <!-- Photo 2 -->
               <div class="card card-compact reveal-up delay-1" onclick="openLightbox(1)">
                 <div class="card-inner">
-                  <img src="img/Dettaglio02.jpg" alt="Dettaglio 2" class="img-gallery-small">
+                  <img src="../img/dettaglio/Dettaglio02.jpg" alt="Detail 2" class="img-gallery-small">
                 </div>
               </div>
 
-              <!-- Foto 3 -->
+              <!-- Photo 3 -->
               <div class="card card-compact reveal-up delay-2" onclick="openLightbox(2)">
                 <div class="card-inner">
-                  <img src="img/Dettaglio03.jpg" alt="Dettaglio 3" class="img-gallery-small">
+                  <img src="../img/dettaglio/Dettaglio03.jpg" alt="Detail 3" class="img-gallery-small">
                 </div>
               </div>
-        </div>
+            </div>
+ 
+              <div class="grid-gallery-3">
+              <!-- Photo 4 -->
+              <div class="card card-compact reveal-up delay-3" onclick="openLightbox(3)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio04.jpg" alt="Detail 4" class="img-gallery-small">
+                </div>
+              </div>
+
+              <!-- Photo 5 -->
+              <div class="card card-compact reveal-up delay-4" onclick="openLightbox(4)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio05.jpg" alt="Detail 5" class="img-gallery-small">
+                </div>
+              </div>
+
+              <!-- Photo 6 -->
+              <div class="card card-compact reveal-up delay-5" onclick="openLightbox(5)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio06.jpg" alt="Detail 6" class="img-gallery-small">
+                </div>
+              </div>
+            </div>
 
 <!-- STRUTTURA DELLA LIGHTBOX (Invisibile all'inizio) -->
 <div id="lightbox" class="lightbox-overlay">
@@ -92,7 +115,7 @@
 </main>
  <script>
         // 1. Definiamo l'elenco delle immagini e delle didascalie
-        const galleryImages = ["img/Dettaglio01.jpg", "img/Dettaglio02.jpg", "img/Dettaglio03.jpg"];
+        const galleryImages = ["img/dettaglio/Dettaglio01.jpg", "img/dettaglio/Dettaglio02.jpg", "img/dettaglio/Dettaglio03.jpg", "img/dettaglio/Dettaglio06.jpg", "img/dettaglio/Dettaglio05.jpg", "img/dettaglio/Dettaglio06.jpg"];
         const galleryCaptions = ["Dettaglio Aerodinamico Frontale", "Vasca in Fibra di Carbonio", "Sospensioni e Assetto"];
         let currentIndex = 0;
 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="STEM Racing Project Gobetti Volta 2026 - students and technological competition">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Website | Home</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Load the JS engine from the parent folder -->
+    <script src="../components.js" defer></script>
+</head>
+<body>
+
+    <!-- Placeholder for Header and Nav -->
+    <div id="header-placeholder"></div>
+
+<main class="due-colonne">
+    <div class="container-principale">
+      
+      <!-- LEFT COLUMN (70%): RESOURCES AND PORTFOLIOS -->
+      <div class="sinistra">
+        
+        <!-- SECTION: OFFICIAL RESOURCES -->
+        <h2 class="reveal-up">Official Resources</h2>
+        <div class="card card-wide-internal reveal-up delay-1" style="margin-bottom: 40px;">
+            <div class="card-inner">
+                <ul class="lista-link-clean">
+                    <li><a href="https://share.google/xZEEX67fWkfBm6HQm" target="_blank">→ Stem Racing Italy Multidisciplinary Challenge</a></li>
+                    <li><a href="https://share.google/TUR9yPPHtedgA4JXF" target="_blank">→ STEM Racing Global (Official Website)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION: OUR E-PORTFOLIOS -->
+        <h2 class="reveal-up">Our e-Portfolios</h2>
+        <div class="grid-internal-3">
+            <!-- Portfolio 1 -->
+            <div class="card card-compact reveal-up delay-2">
+                <a href="https://www.canva.com/design/DAHGfFAcV1I/--ZNl_GFJ5Qqh2x1ffzD1g/edit" target="_blank" class="card-link">
+                    <div class="card-inner">
+                        <div class="avatar-placeholder">
+                            <img src="../img/index/portfolio_pm.png" alt="PM" class="member-img">
+                        </div>
+                        <h3>Project Management</h3>
+                        <p>Planning and coordination</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Portfolio 2 -->
+            <div class="card card-compact reveal-up delay-3">
+                <a href="https://www.canva.com/design/DAHCztr78yY/FfmP80tfwVACLcEtBcXlaw/edit" target="_blank" class="card-link">
+                    <div class="card-inner">
+                        <div class="avatar-placeholder">
+                            <img src="../img/index/portfolio_enterprise.png" alt="Enterprise" class="member-img">
+                        </div>
+                        <h3>Enterprise</h3>
+                        <p>Business and strategy</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Portfolio 3 -->
+            <div class="card card-compact reveal-up delay-4">
+                <a href="https://www.canva.com/design/DAHGRlRrwQw/6kdlnYAI3IL8elsGqT0h7Q/edit" target="_blank" class="card-link">
+                    <div class="card-inner">
+                        <div class="avatar-placeholder">
+                            <img src="../img/index/portfolio_des_eng.png" alt="Engineering" class="member-img">
+                        </div>
+                        <h3>Design & Engineering</h3>
+                        <p>Technical development</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+     </div>
+     
+     <!-- RIGHT COLUMN (30%): MULTIMEDIA AND AGENDA -->
+     <div class="destra">
+        <h2 class="reveal-up">Highlights</h2>
+        <!-- Added 'no-hover-lift' class to disable the jump effect -->
+        <div class="card reveal-up delay-1 no-hover-lift" style="padding: 10px;">
+            <div class="carousel-container" style="border:none; height: 200px;">
+                <div class="slide active"><img src="../img/carousel-home/Foto01.jpg" alt="Photo 1"></div>
+                <div class="slide"><img src="../img/carousel-home/Foto02.jpg" alt="Photo 2"></div>
+                <div class="slide"><img src="../img/carousel-home/Foto03.jpg" alt="Photo 3"></div>
+                <div class="slide"><img src="../img/carousel-home/Foto04.jpg" alt="Photo 4"></div>
+                <div class="slide"><img src="../img/carousel-home/Foto05.jpg" alt="Photo 5"></div>
+                <button class="prev" onclick="cambiaSlide(-1)">&#10094;</button>
+                <button class="next" onclick="cambiaSlide(1)">&#10095;</button>
+
+                <div class="dots-container">
+                    <span class="dot active" onclick="vaiAllaSlide(0)"></span>
+                    <span class="dot" onclick="vaiAllaSlide(1)"></span>
+                    <span class="dot" onclick="vaiAllaSlide(2)"></span>
+                    <span class="dot" onclick="vaiAllaSlide(3)"></span>
+                    <span class="dot" onclick="vaiAllaSlide(4)"></span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="reveal-up delay-2" style="margin-top: 30px;">Agenda</h2>
+        <div class="calendario reveal-up delay-3" style="max-width: 100%;">
+            <div class="calendario-titolo" onclick="toggleEvents()">
+                UPCOMING EVENTS (OPEN)
+            </div>
+            <div class="calendario-corpo" id="lista-eventi">
+                <p><strong>15/04</strong> - e-Portfolio Submission</p>
+                <a href="gallery-eventi.html#giuria" class="calendario-link">
+                    <p><strong>18/04</strong> - Scrutiny & Judging<i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-left: 5px;"></i></p>
+                </a>
+                <a href="gallery-eventi.html#gara" class="calendario-link">
+                    <p><strong>19/04</strong> - Race & Awards<i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-left: 5px;"></i></p>
+                </a>
+            </div>
+        </div>
+     </div>
+    
+  </div>
+</main>
+
+    <div id="footer-placeholder"></div>
+
+<script>
+function toggleEvents() {
+    const container = document.getElementById("lista-eventi");
+    if (container.style.display === "none" || container.style.display === "") {
+        container.style.display = "block";
+    } else {
+        container.style.display = "none";
+    }
+}
+let currentSlide = 0;
+const slides = document.getElementsByClassName("slide");
+const dots = document.getElementsByClassName("dot");
+
+function mostraSlide(n) {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+        dots[i].classList.remove("active");
+    }
+    currentSlide = n;
+    if (n >= slides.length) { currentSlide = 0; }
+    if (n < 0) { currentSlide = slides.length - 1; }
+    slides[currentSlide].classList.add("active");
+    dots[currentSlide].classList.add("active");
+}
+
+function cambiaSlide(direzione) {
+    mostraSlide(currentSlide + direzione);
+}
+
+function vaiAllaSlide(n) {
+    mostraSlide(n);
+}
+
+setInterval(() => {
+    cambiaSlide(1);
+}, 2000);
+</script>
+</body>
+</html>

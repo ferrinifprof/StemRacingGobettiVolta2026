@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Eventi | Gobetti Volta Corse</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../components.js" defer></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+<main>
+    <section class="section-internal">
+        <div class="container-internal">
+            
+            <div class="header-internal reveal-up">
+                <span class="badge-crema">TIMELINE</span>
+                <h2 class="title-internal">Cronologia Eventi</h2>
+                <div class="underline-internal"></div>
+            </div>
+
+            <!-- SEZIONE 1: GIURIA -->
+            <div id="giuria" class="card card-wide-internal reveal-up">
+                <div class="card-inner">
+                    <!-- Nuova Testata interna che occupa tutta la larghezza -->
+                    <div class="event-info-header">
+                        <span class="role-text">18 Aprile 2026</span>
+                        <h2>Controlli della Giuria</h2>
+                        <p class="desc-internal" style="text-align: left; margin: 10px 0 0 0;">
+                            Verifiche tecniche e presentazione del progetto alla giuria.
+                        </p>
+                    </div>
+                    
+                    <!-- Griglia Foto (JS la riempirà qui sotto) -->
+                    <div id="grid-giuria" class="grid-internal-4"></div>
+                </div>
+            </div>
+
+            <div style="height: 50px;"></div> <!-- Spazio tra i due eventi -->
+
+            <!-- SEZIONE 2: GARA -->
+            <div id="gara" class="card card-wide-internal reveal-up">
+                <div class="card-inner">
+                    <div class="event-info-header">
+                        <span class="role-text">19 Aprile 2026</span>
+                        <h2>Gara e Premiazioni</h2>
+                        <p class="desc-internal" style="text-align: left; margin: 10px 0 0 0;">
+                            L'emozione della pista e i risultati finali.
+                        </p>
+                    </div>
+                    
+                    <div id="grid-gara" class="grid-internal-4"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+        <!-- STRUTTURA LIGHTBOX -->
+        <div id="lightbox" class="lightbox-overlay">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <button class="lightbox-prev" onclick="changeImg(-1)">&#10094;</button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" src="" alt="Ingrandimento">
+                <div id="lightbox-caption"></div>
+            </div>
+            <button class="lightbox-next" onclick="changeImg(1)">&#10095;</button>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // --- 1. CONFIGURAZIONE DATI ---
+        
+        // Generiamo i nomi dei file da gara01 a gara25 automaticamente
+        const fotoGiuria = [];
+        for(let i=1; i<=25; i++) {
+            fotoGiuria.push(`../img/eventi/gara${i.toString().padStart(2, '0')}.jpg`);
+        }
+
+        // Foto per la seconda sezione (Gara)
+        const fotoGara = [
+            "../img/eventi/competizione01.jpg", 
+            "../img/eventi/competizione02.jpg", 
+            "../img/eventi/competizione03.jpg"
+        ];
+
+        // Uniamo tutto per il Lightbox unico
+        const allImages = [...fotoGiuria, ...fotoGara];
+        const allCaptions = allImages.map(path => path.split('/').pop()); // Usa il nome del file come didascalia temporanea
+        
+        let currentIndex = 0;
+
+        // --- 2. GENERATORE DINAMICO DI HTML ---
+
+function buildGallery(imageArray, containerId, startIndex) {
+    const container = document.getElementById(containerId);
+    
+    imageArray.forEach((path, i) => {
+        const globalIndex = startIndex + i;
+        
+        // Creiamo DIRETTAMENTE l'immagine
+        const img = document.createElement('img');
+        img.src = path;
+        img.alt = "Foto Evento";
+        // Applichiamo le classi per lo stile e per l'animazione parcheggio
+        img.className = "img-grid-thumb reveal-up"; 
+        
+        // Ritardo a cascata per l'effetto parcheggio
+        const delay = (i % 4) * 0.1;
+        img.style.transitionDelay = `${delay}s`;
+        
+        // Al click apre il lightbox
+        img.onclick = () => openLightbox(globalIndex);
+        
+        container.appendChild(img);
+    });
+}
+
+        // --- 3. LOGICA LIGHTBOX ---
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            document.getElementById("lightbox").style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        function changeImg(n) {
+            currentIndex = (currentIndex + n + allImages.length) % allImages.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            document.getElementById("lightbox-img").src = allImages[currentIndex];
+            document.getElementById("lightbox-caption").innerText = `Immagine ${currentIndex + 1} di ${allImages.length}`;
+        }
+
+        // --- 4. AVVIO ---
+
+        window.addEventListener('load', () => {
+            // Costruiamo la prima griglia
+            buildGallery(fotoGiuria, "grid-giuria", 0);
+            // Costruiamo la seconda griglia (partendo dall'indice 25)
+            buildGallery(fotoGara, "grid-gara", fotoGiuria.length);
+            
+            // Re-inizializziamo le animazioni parcheggio per i nuovi elementi creati
+            if(typeof initAnimations === 'function') initAnimations();
+        });
+    </script>
+</body>
+</html>

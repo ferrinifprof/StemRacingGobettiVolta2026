@@ -1008,7 +1008,25 @@ footer {
 .card:hover .img-model-display {
     transform: scale(1.03);
 }
+/* ==========================================================================
+   LANGUAGE SWITCH
+   ========================================================================== */
+.lang-switch {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #888;
+    margin-right: 15px;
+}
 
+.lang-switch a {
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.lang-switch a:hover, .lang-switch a.active-lang {
+    color: #D4AF37; /* L'oro per la lingua selezionata */
+}
 /* ==========================================================================
    SEZIONE 9. STILE LIGHTBOX (POP-UP GALLERY)
    ========================================================================== */

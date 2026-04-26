@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Model | Gobetti Volta Corse</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../components.js" defer></script>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+<main>
+    <section class="section-internal reveal-up">
+        <div class="container-internal">
+            
+            <div class="header-internal">
+                <span class="badge-crema">OUR MACHINE</span>
+                <h2 class="title-internal">The Car Model</h2>
+                <div class="underline-internal"></div> 
+                <p class="desc-internal">
+                    Our F1 model, carefully designed in every detail to maximize speed and aerodynamics.
+                </p>
+            </div>
+
+            <!-- Card with clickable image -->
+            <div class="card card-wide-internal reveal-up delay-1">
+                <a href="#gallery-tecnica" class="card-link"> <!-- Jump to gallery -->
+                    <div class="card-inner" style="text-align: center;">
+                        <img src="../img/savethedate.png" alt="F1 Model" class="img-model-display">
+                        <p style="margin-top: 15px; font-size: 0.7rem; color: var(--accent); opacity: 0.7;">
+                            (Click the image to view details)
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: TECHNICAL GALLERY -->
+    <section id="gallery-tecnica" class="section-internal reveal-up" style="margin-top: 50px;">
+        <div class="container-internal">
+            <div class="header-internal">
+                <span class="badge-crema">DETAILS</span>
+                <h2 class="title-internal">Technical Gallery</h2>
+                <div class="underline-internal"></div>
+            </div>
+
+            <!-- Grid for 3 small photos -->
+            <div class="grid-gallery-3">
+              <!-- Photo 1 -->
+              <div class="card card-compact reveal-up" onclick="openLightbox(0)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio01.jpg" alt="Detail 1" class="img-gallery-small">
+                </div>
+              </div>
+
+              <!-- Photo 2 -->
+              <div class="card card-compact reveal-up delay-1" onclick="openLightbox(1)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio02.jpg" alt="Detail 2" class="img-gallery-small">
+                </div>
+              </div>
+
+              <!-- Photo 3 -->
+              <div class="card card-compact reveal-up delay-2" onclick="openLightbox(2)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio03.jpg" alt="Detail 3" class="img-gallery-small">
+                </div>
+              </div>
+            </div>
+ 
+              <div class="grid-gallery-3">
+              <!-- Photo 4 -->
+              <div class="card card-compact reveal-up delay-3" onclick="openLightbox(3)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio04.jpg" alt="Detail 4" class="img-gallery-small">
+                </div>
+              </div>
+
+              <!-- Photo 5 -->
+              <div class="card card-compact reveal-up delay-4" onclick="openLightbox(4)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio05.jpg" alt="Detail 5" class="img-gallery-small">
+                </div>
+              </div>
+
+              <!-- Photo 6 -->
+              <div class="card card-compact reveal-up delay-5" onclick="openLightbox(5)">
+                <div class="card-inner">
+                  <img src="../img/dettaglio/Dettaglio06.jpg" alt="Detail 6" class="img-gallery-small">
+                </div>
+              </div>
+            </div>
+
+            <!-- LIGHTBOX STRUCTURE -->
+            <div id="lightbox" class="lightbox-overlay">
+                <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+                
+                <button class="lightbox-prev" onclick="changeImg(-1)">&#10094;</button>
+                
+                <div class="lightbox-content">
+                    <img id="lightbox-img" src="" alt="Enlarged Detail">
+                    <div id="lightbox-caption"></div>
+                </div>
+                
+                <button class="lightbox-next" onclick="changeImg(1)">&#10095;</button>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<script>
+    // 1. List of images and translated captions
+    // Note: paths point one level up to find the img folder
+    const galleryImages = ["../img/dettaglio/Dettaglio01.jpg", "../img/dettaglio/Dettaglio02.jpg", "../img/dettaglio/Dettaglio03.jpg", "../img/dettaglio/Dettaglio04.jpg", "../img/dettaglio/Dettaglio05.jpg", "../img/dettaglio/Dettaglio06.jpg"];
+    const galleryCaptions = ["Front Aerodynamic Detail", "Carbon Fiber Monocoque", "Suspension and Chassis Setup"];
+    let currentIndex = 0;
+
+    // 2. Open pop-up
+    function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        document.getElementById("lightbox").style.display = "flex";
+        document.body.style.overflow = "hidden"; // Disable background scrolling
+    }
+
+    // 3. Close pop-up
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+    }
+
+    // 4. Change image (arrows)
+    function changeImg(n) {
+        currentIndex += n;
+        if (currentIndex >= galleryImages.length) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = galleryImages.length - 1;
+        updateLightbox();
+    }
+
+    // 5. Update shown image
+    function updateLightbox() {
+        const imgElement = document.getElementById("lightbox-img");
+        const captionElement = document.getElementById("lightbox-caption");
+        
+        imgElement.src = galleryImages[currentIndex];
+        captionElement.innerText = galleryCaptions[currentIndex];
+    }
+
+    // 6. Close if clicking outside the image
+    window.addEventListener('load', () => {
+        const lb = document.getElementById("lightbox");
+        if(lb) {
+            lb.onclick = function(e) {
+                if (e.target.id === "lightbox") closeLightbox();
+            };
+        }
+    });
+</script>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

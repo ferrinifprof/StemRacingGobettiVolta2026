@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery Eventi | Gobetti Volta Corse</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <script src="components.js" defer></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../components.js" defer></script>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -76,14 +76,14 @@
         // Generiamo i nomi dei file da gara01 a gara25 automaticamente
         const fotoGiuria = [];
         for(let i=1; i<=25; i++) {
-            fotoGiuria.push(`img/eventi/gara${i.toString().padStart(2, '0')}.jpg`);
+            fotoGiuria.push(`../img/eventi/gara${i.toString().padStart(2, '0')}.jpg`);
         }
 
         // Foto per la seconda sezione (Gara)
         const fotoGara = [
-            "img/eventi/competizione01.jpg", 
-            "img/eventi/competizione02.jpg", 
-            "img/eventi/competizione03.jpg"
+            "../img/eventi/competizione01.jpg", 
+            "../img/eventi/competizione02.jpg", 
+            "../img/eventi/competizione03.jpg"
         ];
 
         // Uniamo tutto per il Lightbox unico
