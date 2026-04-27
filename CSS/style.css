@@ -172,7 +172,7 @@ main h2 {
 /* ==========================================================================
    5. COMPONENTI: LISTA LINK (BOTTONI RACING)
    ========================================================================== */
-/* --- 1. RISORSE UFFICIALI (Testo Bianco Grassetto -> Oro) --- */
+/* --- 1. RISORSE UFFICIALI (Link Ufficiali del progetto) --- */
 .lista-link-clean {
     list-style: none !important;
     padding: 0 !important;
@@ -211,9 +211,10 @@ main h2 {
 
 /* --- IL SALTO: Solo sul link toccato dal cursore --- */
 .lista-link-clean a:hover {
-    color: var(--accent) !important;
-    /* Salto a destra deciso */
-    transform: translateX(10px); 
+    color: #D4AF37 !important;       /* Testo colo oro al passaggio del mouse */
+    transform: translateX(10px);     /* Salto a destra deciso */
+    filter: brightness(1.2);         /* Aumento della luminosità del testo */
+    cursor: pointer;
 }
 
 /* --- 2. PORTFOLIO: IMMAGINI ADATTATE ALLA LARGHEZZA --- */
