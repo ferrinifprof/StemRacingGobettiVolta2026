@@ -173,21 +173,30 @@ main h2 {
    5. COMPONENTI: LISTA LINK (BOTTONI RACING)
    ========================================================================== */
 /* --- 1. RISORSE UFFICIALI (Testo Bianco Grassetto -> Oro) --- */
+.lista-link-clean {
+    list-style: none !important; /* Forza la scomparsa di qualsiasi pallino */
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 .lista-link-clean li {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    display: flex;             /* Allinea freccia e testo in riga */
+    align-items: flex-start;   /* Se il testo è lungo, la freccia resta in alto */
 }
 
 .lista-link-clean a {
-    color: #ffffff !important;   /* Bianco di base */
+    color: #ffffff !important;
     text-decoration: none;
-    font-weight: bold;           /* Grassetto come richiesto */
+    font-weight: bold;
     font-size: 0.95rem;
     transition: color 0.3s ease;
+    line-height: 1.4;          /* Spazio tra le righe se va a capo */
     display: inline-block;
 }
 
 .lista-link-clean a:hover {
-    color: var(--accent) !important; /* Diventa Oro al passaggio */
+    color: var(--accent) !important;
 }
 
 /* --- 2. PORTFOLIO: IMMAGINI ADATTATE ALLA LARGHEZZA --- */
