@@ -174,15 +174,24 @@ main h2 {
    ========================================================================== */
 /* --- 1. RISORSE UFFICIALI (Testo Bianco Grassetto -> Oro) --- */
 .lista-link-clean {
-    list-style: none !important; /* Forza la scomparsa di qualsiasi pallino */
+    list-style: none !important;
     padding: 0 !important;
     margin: 0 !important;
 }
 
 .lista-link-clean li {
     margin-bottom: 20px;
-    display: flex;             /* Allinea freccia e testo in riga */
-    align-items: flex-start;   /* Se il testo è lungo, la freccia resta in alto */
+    display: flex;
+    align-items: flex-start; /* La freccia resta in alto se il testo va a capo */
+}
+
+/* La freccetta fissa */
+.lista-link-clean li::before {
+    content: '→';
+    color: var(--accent);
+    margin-right: 12px;
+    font-weight: bold;
+    flex-shrink: 0; /* Impedisce alla freccia di rimpicciolirsi */
 }
 
 .lista-link-clean a {
@@ -190,13 +199,17 @@ main h2 {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.95rem;
-    transition: color 0.3s ease;
-    line-height: 1.4;          /* Spazio tra le righe se va a capo */
-    display: inline-block;
+    line-height: 1.4;
+    display: inline-block; /* Fondamentale per permettere il movimento */
+    
+    /* TRANSIZIONE: aggiungiamo 'transform' per rendere il salto fluido */
+    transition: color 0.3s ease, transform 0.3s ease; 
 }
 
+/* EFFETTO HOVER: Cambio colore + Salto a destra di 10px */
 .lista-link-clean a:hover {
     color: var(--accent) !important;
+    transform: translateX(10px); /* Ecco il "salto" in avanti */
 }
 
 /* --- 2. PORTFOLIO: IMMAGINI ADATTATE ALLA LARGHEZZA --- */
