@@ -1436,6 +1436,42 @@ footer {
     .destra { width: 100%; padding-left: 0; margin-top: 20px; }
     .calendario, .carousel-container { width: 100%; max-width: 100%; }
 
+ /* --- 1. FIX CARD: Una sola card per riga --- */
+    .grid-internal-4, 
+    .grid-internal-3, 
+    .grid-team-6 {
+        grid-template-columns: 1fr !important; /* Forza 1 colonna */
+        gap: 20px; /* Spazio tra una card e l'altra */
+    }
+
+    .card-compact {
+        min-height: auto !important; /* Toglie l'altezza fissa che le renderebbe troppo lunghe */
+        padding: 30px 20px !important;
+    }
+
+    /* --- 2. FIX MENÙ OVERLAY: Font più grande --- */
+    #nav-menu a {
+        font-size: 2.2rem !important; /* Ingrandito per facilità di tocco */
+        margin: 10px 0;
+        letter-spacing: 1px;
+    }
+
+    /* --- 3. EXTRA TOOLS (Lingua e Social) --- */
+    .mobile-extra-tools {
+        margin-top: 40px;
+        width: 80%;
+        border-top: 1px solid rgba(212, 175, 55, 0.4);
+        padding-top: 30px;
+    }
+
+    .lang-switch-mobile a {
+        font-size: 1.1rem !important; /* Ingrandito anche il selettore lingua */
+    }
+
+    .social-mobile a {
+        font-size: 2rem !important; /* Icone social più grandi */
+    }
+
     /* 8. Fix Gallery Lightbox Mobile */
     .lightbox-prev, .lightbox-next {
         position: fixed !important;
