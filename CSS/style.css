@@ -1345,12 +1345,9 @@ footer {
 }
 
 /* ==========================================================================
-   SEZIONE 10. RESPONSIVE DESIGN (SOLUZIONE DEFINITIVA MOBILE)
+   SEZIONE 10. RESPONSIVE DESIGN (SOLUZIONE MOBILE)
    ========================================================================== */
 
-/* ==========================================================================
-   SEZIONE 10. RESPONSIVE DESIGN (VERSIONE FINALE CORRETTA)
-   ========================================================================== */
 
 @media (max-width: 768px) {
     
@@ -1451,7 +1448,7 @@ footer {
 
     /* --- 2. FIX MENÙ OVERLAY: Font più grande --- */
     #nav-menu a {
-        font-size: 2.2rem !important; /* Ingrandito per facilità di tocco */
+        font-size: 1.5rem !important; /* Ingrandito per facilità di tocco */
         margin: 10px 0;
         letter-spacing: 1px;
     }
