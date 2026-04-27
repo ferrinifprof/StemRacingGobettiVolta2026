@@ -664,7 +664,7 @@ footer {
 /* --- FIX SCROLL PRECISO PER TUTTE LE SEZIONI --- */
 #crew, #scuola, #missione, #posizione, #stud1, #stud2, #stud3, #stud4, #stud5, #stud6 {
     scroll-margin-top: 100px; /* Spazio per la Navbar */
-    min-height: 70vh;        /* Altezza minima per spingere via il contenuto precedente */
+    min-height: 20vh;        /* Altezza minima per spingere via il contenuto precedente */
 }
 
 /* Header di sezione rimpicciolito */
@@ -705,6 +705,38 @@ footer {
     margin-bottom: 8px;
     border: none !important; /* Rimuove eventuali bordi ereditati */
     padding: 0 !important;
+}
+/* --- OTTIMIZZAZIONE FOTO DI GRUPPO PAGINA 1 --- */
+
+/* Rimpiccioliamo il riquadro (card) della foto di gruppo */
+.card-group-center {
+    max-width: 600px;    /* Larghezza massima ridotta rispetto alla pagina */
+    margin: 60px auto 0; /* 60px di spazio sopra per togliere l'appiccicume */
+    padding: 20px !important;
+    border-color: rgba(212, 175, 55, 0.3) !important; /* Bordo oro più discreto */
+}
+
+/* Regola per l'immagine di gruppo */
+.img-group-photo {
+    width: 75%;         /* Copre il 75% della larghezza della sua card (che è 800px) */
+    height: auto;
+    border-radius: 10px;
+    filter: grayscale(0.2); /* Un tocco tecnico, opzionale */
+    transition: filter 0.4s ease;
+}
+
+.img-group-photo:hover {
+    filter: grayscale(0); /* Torna a colori pieni quando ci passi sopra */
+}
+
+/* Testo sotto la foto */
+.group-caption {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.8;
 }
 
 /* Linea decorativa
