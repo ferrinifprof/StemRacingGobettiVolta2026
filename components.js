@@ -93,7 +93,7 @@ const footerHTML = `
             </div>
             <div class="footer-column">
                 <strong><a href="privacy-policy.html">${t.privacy}</a></strong><br>
-                <span style="font-size:1.0rem">STEM RACING Project - Team Gobetti Volta</span>
+                <span>STEM RACING Project - Team Gobetti Volta</span>
             </div>
             <div class="footer-column">
                 <strong>© 2026</strong><br>
