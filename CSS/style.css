@@ -710,7 +710,7 @@ footer {
 
 /* Rimpiccioliamo il riquadro (card) della foto di gruppo */
 .card-group-center {
-    max-width: 600px;    /* Larghezza massima ridotta rispetto alla pagina */
+    max-width: 800px;    /* Larghezza massima ridotta rispetto alla pagina */
     margin: 60px auto 0; /* 60px di spazio sopra per togliere l'appiccicume */
     padding: 20px !important;
     border-color: rgba(212, 175, 55, 0.3) !important; /* Bordo oro più discreto */
@@ -718,7 +718,7 @@ footer {
 
 /* Regola per l'immagine di gruppo */
 .img-group-photo {
-    width: 75%;         /* Copre il 75% della larghezza della sua card (che è 800px) */
+    width: 67%;         /* Copre il 67% della larghezza della sua card (che è 800px) */
     height: auto;
     border-radius: 10px;
     filter: grayscale(0.2); /* Un tocco tecnico, opzionale */
