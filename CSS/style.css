@@ -180,18 +180,20 @@ main h2 {
 }
 
 .lista-link-clean li {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
     align-items: flex-start;
 }
 
-/* Freccia fissa gestita dal CSS */
+/* Freccia fissa (Non si muove) */
 .lista-link-clean li::before {
     content: '→';
     color: var(--accent);
     margin-right: 12px;
     font-weight: bold;
     flex-shrink: 0;
+    /* Allineamento perfetto con la prima riga di testo */
+    margin-top: 2px; 
 }
 
 .lista-link-clean a {
@@ -200,21 +202,18 @@ main h2 {
     font-weight: bold;
     font-size: 0.95rem;
     line-height: 1.4;
+    /* Per beccare meglio il link*/
     display: inline-block;
-    transition: color 0.3s ease, transform 0.4s var(--ease); /* Transizione fluida */
+    padding: 2px 0; 
+    
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* --- IL SEGRETO: Quando la CARD è in hover, sposta il LINK --- */
-.card:hover .lista-link-clean a {
-    color: var(--accent) !important;
-    transform: translateX(10px); /* Il link slitta a destra */
-}
-
-/* Se l'utente va col mouse proprio sopra il link, lo rendiamo ancora più luminoso */
+/* --- IL SALTO: Solo sul link toccato dal cursore --- */
 .lista-link-clean a:hover {
-    filter: brightness(1.2);
     color: var(--accent) !important;
-    transform: translateX(10px); /* Ecco il "salto" in avanti */
+    /* Salto a destra deciso */
+    transform: translateX(10px); 
 }
 
 /* --- 2. PORTFOLIO: IMMAGINI ADATTATE ALLA LARGHEZZA --- */
