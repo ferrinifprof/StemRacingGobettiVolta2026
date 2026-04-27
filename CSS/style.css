@@ -336,7 +336,7 @@ main h2 {
 
 /* --- ICONE SOCIAL NEL FOOTER --- */
 .footer-socials {
-        justify-content: center !important; /* Sovrascrive il flex-end del desktop */
+        justify-content: right !important; /* Sovrascrive il flex-end del desktop */
         margin-top: 15px;
         width: 100%;
         display: flex; /* Assicuriamoci che sia un flexbox */
