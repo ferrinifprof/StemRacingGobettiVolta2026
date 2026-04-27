@@ -50,7 +50,7 @@ const headerHTML = `
             
             <div class="logo-text">
                 <h1>GOBETTI VOLTA CORSE</h1>
-                <p>${isEnglish ? 'Gobetti-Volta Project s.y. 2025/26' : 'Progetto Gobetti-Volta a.s. 2025/26'}</p>
+                <p>${isEnglish ? 'Gobetti-Volta Project school year 2025/26' : 'Progetto Gobetti-Volta anno scolastico 2025/26'}</p>
             </div>
             
             <!-- 1. PRIMA IL LOGO GRANDE (margine a sinistra) -->
@@ -93,7 +93,7 @@ const footerHTML = `
             </div>
             <div class="footer-column">
                 <strong><a href="privacy-policy.html">${t.privacy}</a></strong><br>
-                <span style="font-size:0.7rem">STEM RACING Project - Team Gobetti Volta</span>
+                <span style="font-size:1.0rem">STEM RACING Project - Team Gobetti Volta</span>
             </div>
             <div class="footer-column">
                 <strong>© 2026</strong><br>
