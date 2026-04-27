@@ -107,7 +107,7 @@ const footerHTML = `
                 <span>STEM RACING Project - Team Gobetti Volta</span>
             </div>
             <div class="footer-column">
-                <strong>© 2026</strong><br>
+                <strong>© 2026</strong>
                 <span>${t.credits}</span>
                 <div class="footer-socials">
                     <a href="https://www.instagram.com/gobettivoltacorse/" target="_blank"><i class="fab fa-instagram"></i></a>
