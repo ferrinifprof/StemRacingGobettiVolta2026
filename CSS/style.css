@@ -168,6 +168,12 @@ main h2 {
     font-weight: 800;
     letter-spacing: 1px;
 }
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end; /* Allineamento a destra per PC */
+    margin-top: 15px;
+}
 
 /* ==========================================================================
    5. COMPONENTI: LISTA LINK (BOTTONI RACING)
@@ -330,10 +336,10 @@ main h2 {
 
 /* --- ICONE SOCIAL NEL FOOTER --- */
 .footer-socials {
-    display: flex;
-    gap: 15px;
-    justify-content: flex-end; /* Allinea a destra come il testo della colonna */
-    margin-top: 15px;
+        justify-content: center !important; /* Sovrascrive il flex-end del desktop */
+        margin-top: 15px;
+        width: 100%;
+        display: flex; /* Assicuriamoci che sia un flexbox */
 }
 
 .footer-socials a {
@@ -345,7 +351,13 @@ main h2 {
 .footer-socials a:hover {
     color: #D4AF37; /* Diventa oro al passaggio */
 }
-
+/* Assicuriamoci che la colonna che le contiene non abbia margini strani */
+.footer-column:last-child {
+   text-align: center !important;
+   display: flex;
+   flex-direction: column;
+   align-items: center; /* Centra verticalmente gli elementi interni */
+}
 /* Responsive: su mobile centriamo anche le icone del footer */
 @media (max-width: 768px) {
     .footer-socials {
