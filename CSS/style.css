@@ -182,16 +182,16 @@ main h2 {
 .lista-link-clean li {
     margin-bottom: 20px;
     display: flex;
-    align-items: flex-start; /* La freccia resta in alto se il testo va a capo */
+    align-items: flex-start;
 }
 
-/* La freccetta fissa */
+/* Freccia fissa gestita dal CSS */
 .lista-link-clean li::before {
     content: '→';
     color: var(--accent);
     margin-right: 12px;
     font-weight: bold;
-    flex-shrink: 0; /* Impedisce alla freccia di rimpicciolirsi */
+    flex-shrink: 0;
 }
 
 .lista-link-clean a {
@@ -200,14 +200,19 @@ main h2 {
     font-weight: bold;
     font-size: 0.95rem;
     line-height: 1.4;
-    display: inline-block; /* Fondamentale per permettere il movimento */
-    
-    /* TRANSIZIONE: aggiungiamo 'transform' per rendere il salto fluido */
-    transition: color 0.3s ease, transform 0.3s ease; 
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.4s var(--ease); /* Transizione fluida */
 }
 
-/* EFFETTO HOVER: Cambio colore + Salto a destra di 10px */
+/* --- IL SEGRETO: Quando la CARD è in hover, sposta il LINK --- */
+.card:hover .lista-link-clean a {
+    color: var(--accent) !important;
+    transform: translateX(10px); /* Il link slitta a destra */
+}
+
+/* Se l'utente va col mouse proprio sopra il link, lo rendiamo ancora più luminoso */
 .lista-link-clean a:hover {
+    filter: brightness(1.2);
     color: var(--accent) !important;
     transform: translateX(10px); /* Ecco il "salto" in avanti */
 }
