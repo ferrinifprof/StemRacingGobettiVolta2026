@@ -172,7 +172,7 @@ main h2 {
 /* ==========================================================================
    5. COMPONENTI: LISTA LINK (BOTTONI RACING)
    ========================================================================== */
-* --- 1. RISORSE UFFICIALI (Testo Bianco Grassetto -> Oro) --- */
+/* --- 1. RISORSE UFFICIALI (Testo Bianco Grassetto -> Oro) --- */
 .lista-link-clean li {
     margin-bottom: 15px;
 }
@@ -1348,299 +1348,112 @@ footer {
    SEZIONE 10. RESPONSIVE DESIGN (SOLUZIONE DEFINITIVA MOBILE)
    ========================================================================== */
 
+/* ==========================================================================
+   SEZIONE 10. RESPONSIVE DESIGN (VERSIONE FINALE CORRETTA)
+   ========================================================================== */
+
 @media (max-width: 768px) {
-   .lightbox-prev, .lightbox-next {
-        display: flex !important;    /* Forza la visualizzazione */
-        position: fixed !important;  /* Le ancora allo schermo */
-        top: 50% !important;         /* Le centra verticalmente */
-        transform: translateY(-50%) !important; /* Centratura millimetrica */
-        bottom: auto !important;     /* Annulla il vecchio comando bottom 20px */
-        
-        background: rgba(0, 0, 0, 0.6) !important; /* Sfondo nero più visibile */
-        color: #D4AF37 !important;   /* Oro brillante */
-        
-        width: 50px;                 /* Area di tocco circolare generosa */
-        height: 50px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        font-size: 24px;
-        z-index: 6000 !important;    /* Sopra l'immagine a ogni costo */
-        border: 1px solid rgba(212, 175, 55, 0.3);
-    }
-
-    /* Le stacchiamo leggermente dal bordo per non farle coprire dalle dita */
-    .lightbox-prev { left: 10px !important; }
-    .lightbox-next { right: 10px !important; }
-
-    /* Riduciamo l'immagine per non farla finire SOTTO le frecce */
-    #lightbox-img {
-        max-width: 85vw; /* Lascia un po' di spazio ai lati per le frecce */
-    }
     
-    /* 1. Gestione del nuovo contenitore strumenti a destra */
-/* Trova questa classe e aggiungi margin-left: auto */
-.logo-grande {
-    height: 45px;
-    width: auto;
-    margin-left: auto; /* Questo spinge il logo E tutto ciò che segue a destra */
-}
-
-/* Gestione del contenitore icone + lingua a destra del logo */
-.header-tools {
-    display: flex;
-    flex-direction: column; /* Icone sopra, Lingua sotto */
-    align-items: flex-end;  /* Allinea il contenuto a destra */
-    margin-left: 20px;      /* Spazio dal logo grande */
-    gap: 5px;               /* Spazio tra la riga social e la riga lingua */
-}
-
-/* Rimuovi eventuali margin-left: auto da queste classi se presenti, 
-   altrimenti litigano con il logo grande */
-.header-socials, .lang-switch {
-    margin-left: 0 !important; 
-    display: flex;
-    gap: 10px;
-}
-
-/* Rimpiccioliamo leggermente le icone per non farle sembrare giganti rispetto al logo */
-.header-socials a {
-    font-size: 1rem;
-}
-
-    /* 2. Ottimizzazione icone social per mobile */
-    .header-socials {
-        margin-left: 0;
-        margin-right: 0;
-        gap: 12px;
-    }
-    
-    .header-socials a {
-        font-size: 1rem; /* Leggermente più piccole per stare in riga */
+    /* 1. Header: Distribuzione spazi */
+    .header-container {
+        width: 100%;
+        padding: 5px 10px;
+        justify-content: space-between; /* Hamburger a sx, Titolo centro, Strumenti dx */
     }
 
-    /* 3. Ottimizzazione cambio lingua */
-    .lang-switch {
-        display: block !important;
-        font-size: 0.75rem;
-        margin-right: 0;
-    }
-
-    /* 4. Rimpiccioliamo il titolo per farlo stare su meno righe */
+    /* 2. Titolo: Riduzione per non occupare spazio */
     .logo-text {
-        flex-grow: 1; /* Permette al testo di occupare lo spazio centrale */
+        flex: 1;
+        margin-left: 10px;
     }
 
     .logo-text h1 {
-        font-size: 0.95rem; /* Dimensione ridotta per non "esplodere" */
-        line-height: 1.2;
-        white-space: normal; /* Permette il ritorno a capo ma controllato */
+        font-size: 0.9rem !important; /* Molto compatto */
+        line-height: 1.1;
     }
 
     .logo-text p {
-        font-size: 0.65rem;
+        font-size: 0.6rem !important;
     }
 
-    /* 5. Nascondiamo il logo grande che occupa troppo spazio */
+    /* 3. La "Torretta" a destra: Social sopra, Lingua sotto */
+    .header-tools.desktop-only {
+        display: flex !important; /* Lo rendiamo visibile anche su mobile */
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        gap: 5px !important;
+        margin-left: 10px;
+    }
+
+    .header-socials {
+        display: flex !important;
+        gap: 8px !important;
+    }
+
+    .header-socials a {
+        font-size: 1rem !important;
+    }
+
+    .lang-switch {
+        display: block !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* 4. Nascondiamo il logo grande che ruba spazio */
     .logo-grande {
         display: none !important;
     }
 
-    /* --- NAVBAR & LOGHI --- */
-    .header-container {
-        width: 95%;
-        padding: 5px 10px;
-    }
-    /* Forza il contenitore a incolonnare e centrare tutto */
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center; 
-        gap: 30px; /* Spazio tra le colonne impilate */
+    .logo-piccolo {
+        height: 35px;
     }
 
-    /* Forza TUTTE le colonne a centrare il testo, ignorando le regole desktop */
-    .footer-column, 
-    .footer-column:nth-child(2), 
-    .footer-column:last-child {
-        text-align: center !important; 
-        flex: none;
-        width: 100%;
-    }
-
-    /* Assicuriamoci che anche i link e gli span siano centrati */
-    .footer-column a, 
-    .footer-column span, 
-    .footer-column strong {
-        display: block; /* Li mette uno sotto l'altro per centrarli meglio */
-        text-align: center;
-    }
-    .logo-piccolo { height: 30px; } /* Più piccolo su mobile */
-    .logo-grande { display: none; }  /* Nascondiamo il logo lungo per fare spazio */
-    
-    .logo-text h1 { font-size: 1rem; } /* Titolo scuola compatto */
-
-    /* Nascondiamo il menu orizzontale */
-    nav ul { display: none; }
-    
-    /* Mostriamo il tasto Hamburger */
+    /* 5. Tasto Hamburger a sinistra */
     .menu-btn {
         display: block !important;
-        order: -1; /* Lo sposta a sinistra del logo */
-        margin-right: 10px;
+        order: -1; 
     }
 
-    /* --- MENU OVERLAY MOBILE --- */
+    /* 6. Fix Menu Mobile (Overlay) */
     #nav-menu {
         position: fixed;
         top: 0; left: 0;
         width: 100%; height: 100vh;
         background: #000;
-        z-index: 2000;
-        display: none; /* Si accende con la classe .show */
+        z-index: 4000;
+        display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    #nav-menu.show {
-        display: flex;
-    }
+    #nav-menu.show { display: flex; }
 
-    #nav-menu li { margin: 15px 0; }
-    #nav-menu a {
-        font-size: 1.5rem;
-        background: none;
-        color: #D4AF37;
-    }
-
-    /* --- HOME PAGE (LAYOUT 60/40 -> 100/100) --- */
+    /* 7. Layout Home Page (Una colonna) */
     main { width: 95%; padding: 10px; }
-    
-    .container-principale {
-        flex-direction: column; /* Colonna di destra va SOTTO la sinistra */
+    .container-principale { flex-direction: column; }
+    .sinistra { width: 100%; border-right: none; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 20px; }
+    .destra { width: 100%; padding-left: 0; margin-top: 20px; }
+    .calendario, .carousel-container { width: 100%; max-width: 100%; }
+
+    /* 8. Fix Gallery Lightbox Mobile */
+    .lightbox-prev, .lightbox-next {
+        position: fixed !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        background: rgba(0,0,0,0.6) !important;
+        width: 45px; height: 45px;
+        border-radius: 50%;
+        display: flex !important;
+        align-items: center; justify-content: center;
+        z-index: 7000;
     }
-
-    .sinistra {
-        flex: none;
-        width: 100%;
-        padding-right: 0;
-        border-right: none; /* Togliamo la linea verticale */
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Linea orizzontale sottile */
-        padding-bottom: 30px;
-    }
-
-    .destra {
-        flex: none;
-        width: 100%;
-        padding-left: 0;
-        margin-top: 30px;
-    }
-
-    /* Calendario e Carousel al 100% di larghezza */
-    .calendario, .carousel-container {
-        max-width: 100%;
-        width: 100%;
-    }
-
-    /* --- PAGINA 1 (GRIGLIA 4 COLONNE -> 1 COLONNA) --- */
-    .grid-internal-4 {
-        grid-template-columns: 1fr; /* Una card sopra l'altra */
-        gap: 20px;
-    }
-
-    .card-compact {
-        min-height: auto;
-    }
-
-    /* --- TITOLI PAGINE INTERNE --- */
-    .title-internal {
-        font-size: 1.5rem;
-    }
-
-    /* --- FOOTER --- */
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    .footer-column { text-align: center !important; }
+    .lightbox-prev { left: 10px; }
+    .lightbox-next { right: 10px; }
+    #lightbox-img { max-width: 85vw; max-height: 60vh; }
 }
 
-/* --- GRIGLIA A 3 PER GLI E-PORTFOLIO --- */
-.grid-internal-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* --- LISTA LINK PULITA (Senza i bordi giganti bianchi) --- */
-.lista-link-clean {
-    list-style: none;
-    padding: 0;
-}
-
-.lista-link-clean li {
-    margin-bottom: 15px;
-}
-
-.lista-link-clean a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    display: block;
-}
-
-.lista-link-clean a:hover {
-    color: var(--accent);
-    padding-left: 10px; /* Effetto slittamento a destra */
-}
-
-/* Riduciamo l'altezza dei titoli h2 nella home per farli stare in un notebook */
-.sinistra h2, .destra h2 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-/* Impedisce alla card di alzarsi al passaggio del mouse */
-.no-hover-lift:hover {
-    transform: none !important; /* Forza la posizione fissa */
-}
-
-/* Opzionale: rendiamo le immagini dei portfolio meno circolari e più "tech" */
-.grid-internal-3 .avatar-placeholder {
-    border-radius: 8px; /* Più squadrate rispetto alle facce del team */
-    width: 100%;
-    height: 100px; /* Rettangolo orizzontale per le cover dei portfolio */
-}
-
-/* Responsive: su mobile tornano a 1 colonna */
-@media (max-width: 768px) {
-    .grid-internal-3 {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Adattamento per schermi più piccoli (Tablet) */
-@media (max-width: 1100px) {
-    .grid-team-6 {
-        grid-template-columns: repeat(3, 1fr); /* 3 colonne su tablet */
-        gap: 15px;
-    }
-}
-
-/* Adattamento per Smartphone */
-@media (max-width: 768px) {
-    .grid-team-6 {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonne su cellulare */
-    }
-}
-/* Responsive per queste sezioni */
-@media (max-width: 900px) {
-    .grid-internal-4 { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-    .grid-internal-4 { grid-template-columns: 1fr; }
+/* Nascondi extra tools mobile quando siamo su PC */
+@media (min-width: 769px) {
+    .mobile-extra-tools { display: none; }
 }
