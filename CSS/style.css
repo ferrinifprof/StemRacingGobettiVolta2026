@@ -353,11 +353,18 @@ main h2 {
 }
 /* Assicuriamoci che la colonna che le contiene non abbia margini strani */
 .footer-column:last-child {
-   text-align: center !important;
-   display: flex;
-   flex-direction: column;
-   align-items: center; /* Centra verticalmente gli elementi interni */
+    text-align: right !important; /* Allinea il testo a destra */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Allinea a destra le icone e i blocchi interni */
+    width: 100%;
 }
+ /* Assicuriamoci che i testi all'interno ubbidiscano */
+    .footer-column:last-child span, 
+    .footer-column:last-child strong {
+        text-align: right !important;
+        width: 100%;
+    }
 /* Responsive: su mobile centriamo anche le icone del footer */
 @media (max-width: 768px) {
     .footer-socials {
