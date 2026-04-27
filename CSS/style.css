@@ -1195,15 +1195,52 @@ footer {
 
 @media (max-width: 768px) {
     /* Forza la visibilità del blocco lingua/social nel menù */
+    /* Il contenitore con la linea oro */
     .mobile-extra-tools {
-        display: flex !important; /* Deve esserci !important */
+        display: flex !important;
         flex-direction: column;
         align-items: center;
         margin-top: 30px;
         padding-top: 20px;
-        border-top: 1px solid rgba(212, 175, 55, 0.3);
-        width: 100%;
+        border-top: 1px solid #D4AF37; /* LINEA ORO */
+        width: 80%; /* Non tutta la larghezza per eleganza */
     }
+
+    /* Allineamento ITA / ENG sulla stessa riga */
+    .lang-switch-mobile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .lang-switch-mobile a {
+        color: #888;
+        font-size: 0.9rem !important;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /* Colore Oro per la lingua attiva */
+    .lang-switch-mobile a.active-lang {
+        color: #D4AF37 !important;
+    }
+
+    .lang-switch-mobile .separator {
+        color: #444;
+    }
+
+    /* Icone social grandi sotto la lingua */
+    .social-mobile {
+        display: flex;
+        gap: 25px;
+    }
+
+    .social-mobile a {
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    
 }   .lightbox-prev, .lightbox-next {
         display: flex !important;    /* Forza la visualizzazione */
         position: fixed !important;  /* Le ancora allo schermo */
@@ -1232,40 +1269,19 @@ footer {
     #lightbox-img {
         max-width: 85vw; /* Lascia un po' di spazio ai lati per le frecce */
     }
-}
-
-    .lang-switch-mobile {
-        margin-bottom: 25px;
-    }
-
-    .lang-switch-mobile a {
-        color: #888;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.1rem;
-        transition: 0.3s;
-    }
-
-    .lang-switch-mobile a.active-lang {
-        color: #D4AF37; /* Oro per la lingua attiva */
-    }
 
     .lang-switch-mobile span {
         color: #444;
         margin: 0 10px;
     }
 
-    .social-mobile {
-        display: flex;
-        gap: 30px;
-    }
-
-    .social-mobile a {
-        color: #D4AF37;
-        font-size: 1.8rem; /* Icone grandi facili da toccare */
+}
+/* Nascondi questo blocco su PC */
+@media (min-width: 769px) {
+    .mobile-extra-tools {
+        display: none;
     }
 }
-
 /* ==========================================================================
    STILI PER LE BIOGRAFIE (biographies.html)
    ========================================================================== */
