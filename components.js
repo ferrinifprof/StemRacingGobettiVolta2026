@@ -59,7 +59,7 @@ const headerHTML = `
             <!-- 2. POI GLI STRUMENTI (all'estrema destra) -->
             <div class="header-tools desktop-only">
                 <div class="header-socials">
-                    <a href="https://www.instagram.com/gobettivoltacorse/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/gobettivolta_corse/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:gobettivoltacorse@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
                 <div class="lang-switch">
@@ -82,7 +82,7 @@ const headerHTML = `
                     <a href="${pathPrefix}en/${currentPage}" class="${lang === 'en' ? 'active-lang' : ''}">ENGLISH</a>
                 </div>
                 <div class="social-mobile">
-                    <a href="https://www.instagram.com/gobettivoltacorse/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/gobettivolta_corse/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:gobettivoltacorse@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
