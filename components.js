@@ -110,7 +110,7 @@ const footerHTML = `
                 <strong>© 2026</strong>
                 <span>${t.credits}</span>
                 <div class="footer-socials">
-                    <a href="https://www.instagram.com/gobettivoltacorse/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/gobettivolta_corse" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:gobettivoltacorse@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
